@@ -1,9 +1,9 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
-Donate link: https://viserx.com/
+Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html
 Requires at least: 4.7
-Tested up to: 5.8.1
+Tested up to: 6.0.1
 Stable tag: 1.0
 Requires PHP: 5.3
 License: GPLv2 or later
@@ -19,17 +19,16 @@ The plugin is called content copy protection. It is very easy to use and install
 
 == Features ==
 
-* Content copy protection
-* Disable right click
+* Content Copy Protection
+* Disable Right Click
 * Disable F12
 * Disable CTRL+I
 * Disable CTRL+J
 * Disable CTRL+C
 * Disable CTRL+U
+* Disable Comments (Upcoming)
+* Disable IP Address (Upcoming)
 
-= Credits =
-
-Thanks to my <a href="https://www.viserx.com/" rel="friend">VISER X</a> WordPress Team For Support and inspired Me !
 
 == Installation ==
 

@@ -1,11 +1,11 @@
 <?php
 /**
  * Plugin Name:       Disabled Source, Disabled Right Click and Content Protection
- * Plugin URI:        https://viserx.com/
+ * Plugin URI:        https://themefic.com/
  * Description:       Disabled source, disabled right click and disabled to copy content of your wordpress website.
  * Version:           1.0 
  * Requires at least: 4.7
- * Tested up to: 5.8.1
+ * Tested up to: 6.0.1
  * Requires PHP:      5.3
  * Text Domain: disabled_source
  * Author:            jahidcse
