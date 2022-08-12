@@ -1,0 +1,42 @@
+if (jh_disabled_options_data.disabled_click == "1") {
+   document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+   });
+}
+
+document.onkeydown = function(e) {
+   if (jh_disabled_options_data.disabled_f12 == "1") {
+      if (event.keyCode == 123) {
+         return false;
+      }
+   }
+   if (jh_disabled_options_data.disabled_ctst_i == "1") {
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
+         return false;
+      }
+      if (e.ctrlKey && e.keyCode == 'I'.charCodeAt(0)) {
+         return false;
+      }
+   }
+   if (jh_disabled_options_data.disabled_ctst_c == "1") {
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
+         return false;
+      }
+      if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+         return false;
+      }
+   }
+   if (jh_disabled_options_data.disabled_ctst_j == "1") {
+      if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
+         return false;
+      }
+      if (e.ctrlKey && e.keyCode == 'J'.charCodeAt(0)) {
+         return false;
+      }
+   }
+   if (jh_disabled_options_data.disabled_ct_u == "1") {
+      if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+         return false;
+      }
+   }
+}

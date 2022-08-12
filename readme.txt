@@ -4,7 +4,7 @@ Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html
 Requires at least: 4.7
 Tested up to: 6.0.1
-Stable tag: 1.0
+Stable tag: 1.1.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -22,11 +22,15 @@ The plugin is called content copy protection. It is very easy to use and install
 * Content Copy Protection
 * Disable Right Click
 * Disable F12
-* Disable CTRL+I
-* Disable CTRL+J
-* Disable CTRL+C
-* Disable CTRL+U
-* Disable Comments (Upcoming)
+* Disable Ctrl+I
+* Disable Ctrl+Shift+I
+* Disable Ctrl+J
+* Disable Ctrl+Shift+J
+* Disable Ctrl+C
+* Disable Ctrl+Shift+C
+* Disable Ctrl+U
+* Disable Ctrl+Shift+U
+* Disable Comments
 * Disable IP Address (Upcoming)
 
 
@@ -58,6 +62,11 @@ Yes.
 
 
 == Changelog ==
+
+= 1.1.0 =
+
+* Setting Page Integrate
+* Disable Comments Integrate
 
 = 1.0.0 =
 
