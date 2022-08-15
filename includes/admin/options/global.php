@@ -8,7 +8,7 @@ if( class_exists( 'CSF' ) ) {
   $prefix = 'jh_disabled_option';
 
   CSF::createOptions( $prefix, array(
-    'framework_title'         =>   __( 'Disabled Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://themefic.com" target="_blank">Jahid Hasan</a></small>', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'framework_title'         =>   __( 'Disabled Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://profiles.wordpress.org/jahidcse/" target="_blank">Jahid Hasan</a></small>', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_title'              =>   __( 'Disabled Settings', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_slug'               =>   'disabled-source-disabled-right-click-and-content-protection',
     'menu_icon'               =>   'dashicons-lock',

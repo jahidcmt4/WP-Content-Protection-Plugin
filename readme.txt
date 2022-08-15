@@ -60,6 +60,14 @@ Yes.
 
 Yes.
 
+= Can I Disabled comments on my website ? =
+
+Yes.
+
+== Screenshots ==
+
+1. Disabled Settings Panel
+2. Disabled Settings Panel
 
 == Changelog ==
 
