@@ -60,7 +60,7 @@ Yes.
 
 Yes.
 
-= Can I Disabled comments on my website ? =
+= Can I disable comments on my website ? =
 
 Yes.
 
