@@ -85,5 +85,23 @@ if($jh_disabled_options['disabled-comments']=="1"){
 
 }
 
+/**
+ * IP Address Blocker
+*/
+
+function disabled_source_ipblocker(){
+	$jh_disabled_ip_address= get_option( 'jh_disabled_option' );
+	
+    if (!empty($jh_disabled_ip_address['disabled_ip_section'])) {
+    	$jh_disabled_ip_address_list = [];
+    	foreach($jh_disabled_ip_address['disabled_ip_section'] as $singleip){
+    		$jh_disabled_ip_address_list[] = "Deny from {$singleip['disabled_ip']}";
+    	}
+    	$htaccess = ABSPATH . ".htaccess";
+        insert_with_markers($htaccess, 'JHIPBlocker', $jh_disabled_ip_address_list);
+    }
+}
+add_action('csf_jh_disabled_option_save_after', 'disabled_source_ipblocker');
+
 
 ?>

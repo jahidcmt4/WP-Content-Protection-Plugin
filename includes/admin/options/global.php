@@ -80,12 +80,33 @@ if( class_exists( 'CSF' ) ) {
 
   CSF::createSection( $prefix, array(
     'id' => 'disabled_ip_address',
-    'title'  => __( 'Disabled IP Address', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'title'  => __( 'Block by IP Address', 'disabled-source-disabled-right-click-and-content-protection' ),
     'fields' => array(
       array(
-        'id'     => 'disabled_ip',
-        'type'   => 'text',
+        'id'     => 'disabled_ip_section',
+        'type'   => 'repeater',
         'title'  => __( 'IP Address', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'subtitle' => __( "Never use your own IP Address. Then you can't access your Website.", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'fields' => array(
+          array(
+            'id'    => 'disabled_ip',
+            'type'  => 'text'
+          )
+        )
+      )
+    )
+  ) );
+
+   // Disabled IP Address by Country
+
+  CSF::createSection( $prefix, array(
+    'id' => 'disabled_ip_country_address',
+    'title'  => __( 'IP Block by Country', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'     => 'disabled_ip_country',
+        'type'   => 'text',
+        'title'  => __( 'Block By Country', 'disabled-source-disabled-right-click-and-content-protection' ),
         'subtitle' => $badge_up,
         'attributes' => array(
           'readonly' => 'readonly',
