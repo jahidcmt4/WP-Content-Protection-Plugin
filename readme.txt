@@ -79,7 +79,8 @@ No.
 == Screenshots ==
 
 1. Disabled Settings Panel
-2. Disabled Settings Panel
+2. Disable by IP Address Panel
+2. Disable IP by Country Panel
 
 == Changelog ==
 
