@@ -4,18 +4,18 @@ Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html
 Requires at least: 4.7
 Tested up to: 6.0.1
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Disabled source, Disabled Right click and Disabled to Copy Content of your WordPress Blog. 
+Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Blog. 
 
 == Description ==
 
-Disabled Source, Disabled Right Click and Content Protection is a very simple plugin to Protect your Website Content, Protect your Website Source Code. Special thing to Protect your Website images.
+Disabled Source, Disabled Right Click, and Content Protection is a very simple plugin to Protect your Website Content, Disable view page source(Ctrl+U), Disable Right Click, Disable F12 functional key, and Disable save the page(Ctrl+S). The special thing is you to allow or disallow your post comments/review section.
 
-The plugin is called content copy protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices.
+The plugin is called copy content protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices. Our latest features block IP Addresses.
 
 == Features ==
 
@@ -31,8 +31,16 @@ The plugin is called content copy protection. It is very easy to use and install
 * Disable Ctrl+U
 * Disable Ctrl+Shift+U
 * Disable Comments
-* Disable IP Address (Upcoming)
+* Disable by IP Address 
+* Disable IP by Country (Upcoming)
 
+== Disable Comments ==
+
+* If you planning to allow or disallow comments on your website you just activate the Disabled Source, Disabled Right Click, and Content Protection plugin.
+
+== Disable by IP Address ==
+
+* This feature enables users to block unwanted traffic from accessing your website frontend and backend by IP Address. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
 
 == Installation ==
 
@@ -64,12 +72,21 @@ Yes.
 
 Yes.
 
+= are there any disadvantages to Google Ranking ? =
+
+No.
+
 == Screenshots ==
 
 1. Disabled Settings Panel
-2. Disabled Settings Panel
+2. Disable by IP Address Panel
+2. Disable IP by Country Panel
 
 == Changelog ==
+
+= 1.1.1 =
+
+* Disable by IP Address
 
 = 1.1.0 =
 
