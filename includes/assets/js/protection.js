@@ -39,4 +39,15 @@ document.onkeydown = function(e) {
          return false;
       }
    }
+   if (jh_disabled_options_data.disabled_ct_s == "1") {
+      if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+         return false;
+      }
+   }
+}
+
+if (jh_disabled_options_data.disabled_dragging_img == "1") {
+   jQuery("img").mousedown(function(){
+    return false;
+   });
 }

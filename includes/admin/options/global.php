@@ -38,10 +38,20 @@ if( class_exists( 'CSF' ) ) {
       'default' => true,
     ),
     array(
+      'id'    => 'disabled-img-drag',
+      'type'  => 'switcher',
+      'title' => __( 'Disable Images Dragging', 'disabled-source-disabled-right-click-and-content-protection' )
+    ),
+    array(
       'id'    => 'disabled-ct-u',
       'type'  => 'switcher',
       'title' => __( 'Disable Source (CTRL+U)', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
+    ),
+    array(
+      'id'    => 'disabled-ct-s',
+      'type'  => 'switcher',
+      'title' => __( 'Disable Save (CTRL+S)', 'disabled-source-disabled-right-click-and-content-protection' )
     ),
     array(
       'id'    => 'disabled-f12',
