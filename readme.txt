@@ -21,6 +21,7 @@ The plugin is called copy content protection. It is very easy to use and install
 
 * Content Copy Protection
 * Disable Right Click
+* Disable Image Drag/Drop
 * Disable F12
 * Disable Ctrl+I
 * Disable Ctrl+Shift+I
