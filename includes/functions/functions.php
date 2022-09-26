@@ -47,7 +47,9 @@ function disabled_source_front_page_script(){
 		    'disabled_f12' => $jh_disabled_options_script['disabled-f12'],
 		    'disabled_ctst_i' => $jh_disabled_options_script['disabled-ct-st-i'],
 		    'disabled_ctst_j' => $jh_disabled_options_script['disabled-ct-st-j'],
-		    'disabled_ctst_c' => $jh_disabled_options_script['disabled-ct-st-c']
+		    'disabled_ctst_c' => $jh_disabled_options_script['disabled-ct-st-c'],
+		    'disabled_ct_s' => $jh_disabled_options_script['disabled-ct-s'],
+		    'disabled_dragging_img' => $jh_disabled_options_script['disabled-img-drag']
 		);
 		wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
 	}
