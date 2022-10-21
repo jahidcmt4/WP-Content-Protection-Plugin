@@ -1,10 +1,10 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
 Donate link: https://themefic.com/
-Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html
+Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address
 Requires at least: 4.7
-Tested up to: 6.0.1
-Stable tag: 1.1.2
+Tested up to: 6.0.3
+Stable tag: 1.1.3
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -17,9 +17,13 @@ Disabled Source, Disabled Right Click, and Content Protection is a very simple p
 
 The plugin is called copy content protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices. Our latest features block IP Addresses.
 
+== Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window ==
+
 == Features ==
 
 * Content Copy Protection
+* Notification text
+* Disable Developer Tools
 * Disable Right Click
 * Disable Image Drag/Drop
 * Disable F12
@@ -82,22 +86,28 @@ No.
 1. Disabled Settings Panel
 2. Disable by IP Address Panel
 2. Disable IP by Country Panel
+2. Notification Text Panel
 
 == Changelog ==
 
+= 1.1.3 =
+
+* Added: Notification text
+* Update: Compatibility check for WordPress version 6.0.3
+
 = 1.1.2 =
 
-* Disable Image Drag/Drop
-* Disable Save page (CTRL+S)
+* Added: Disable Image Drag/Drop
+* Added: Disable Save page (CTRL+S)
 
 = 1.1.1 =
 
-* Disable by IP Address
+* Added: Disable by IP Address
 
 = 1.1.0 =
 
-* Setting Page Integrate
-* Disable Comments Integrate
+* Added: Setting Page Integrate
+* Added: Disable Comments Integrate
 
 = 1.0.0 =
 
