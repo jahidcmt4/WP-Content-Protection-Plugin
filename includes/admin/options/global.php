@@ -28,13 +28,13 @@ if( class_exists( 'CSF' ) ) {
     array(
       'id'    => 'disabled-content-select',
       'type'  => 'switcher',
-      'title' => __( 'Disabled Content Copy', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'title' => __( 'Disable Content Copy', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
       'id'    => 'disabled-right-click',
       'type'  => 'switcher',
-      'title' => __( 'Disabled Right Click', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'title' => __( 'Disable Right Click', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
     array(
@@ -83,6 +83,27 @@ if( class_exists( 'CSF' ) ) {
       'title' => __( 'Disable Comments', 'disabled-source-disabled-right-click-and-content-protection' ),
     ),
 
+    )
+  ) );
+
+  // Disabled Notification
+
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable Notification', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disabled-notification-status',
+        'type'  => 'switcher',
+        'title' => __( 'Notification Status', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => false,
+      ),
+      array(
+        'id'         => 'disabled-notify-text',
+        'type'       => 'text',
+        'title'      => __( 'Notification Text', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default'      => __( 'You cannot copy content of this Page', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'dependency' => array( 'disabled-notification-status', '==', 'true' ),
+      )
     )
   ) );
 
