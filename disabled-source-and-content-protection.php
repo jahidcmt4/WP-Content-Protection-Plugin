@@ -3,9 +3,9 @@
  * Plugin Name:       Disabled Source, Disabled Right Click and Content Protection
  * Plugin URI:        https://themefic.com/
  * Description:       Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Blog.
- * Version:           1.1.3 
+ * Version:           1.1.4 
  * Requires at least: 4.7
- * Tested up to: 6.0.3
+ * Tested up to: 6.1.1
  * Requires PHP:      5.3
  * Text Domain: disabled-source-disabled-right-click-and-content-protection
  * Author:            jahidcse
@@ -57,3 +57,25 @@ function disablde_source_deshboard_settings( $links ) {
 
   return $links;
 }
+
+
+/**
+ * Initialize the plugin tracker
+ *
+ * @return void
+ */
+function appsero_init_tracker_disabled_source_disabled_right_click_and_content_protection() {
+
+    if ( ! class_exists( 'Appsero\Client' ) ) {
+      require_once __DIR__ . '/includes/inc/app/src/Client.php';
+    }
+
+    $client = new Appsero\Client( '6388b53c-64cb-4f9f-94f2-a36fe6afbb80', 'Disabled Source, Disabled Right Click and Content Protection', __FILE__ );
+
+    // Active insights
+    $client->insights()->init();
+
+}
+
+appsero_init_tracker_disabled_source_disabled_right_click_and_content_protection();
+
