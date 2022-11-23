@@ -3,8 +3,8 @@ Contributors: jahidcse
 Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address
 Requires at least: 4.7
-Tested up to: 6.0.3
-Stable tag: 1.1.3
+Tested up to: 6.1.1
+Stable tag: 1.1.4
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -46,6 +46,15 @@ The plugin is called copy content protection. It is very easy to use and install
 == Disable by IP Address ==
 
 * This feature enables users to block unwanted traffic from accessing your website frontend and backend by IP Address. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
+
+
+<strong>Privacy Policy : </strong>
+Disabled Source, Disabled Right Click and Content Protection uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
+
+Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. We collect the data to ensure a great user experience for all our users. 
+
+Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case.
+
 
 == Installation ==
 
@@ -89,6 +98,10 @@ No.
 2. Notification Text Panel
 
 == Changelog ==
+
+= 1.1.4 =
+
+* Update: Compatibility check for WordPress version 6.1
 
 = 1.1.3 =
 
