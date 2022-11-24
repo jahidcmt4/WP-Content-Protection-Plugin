@@ -110,5 +110,34 @@ function disabled_source_ipblocker(){
 }
 add_action('csf_jh_disabled_option_save_after', 'disabled_source_ipblocker');
 
+function jh_getvisitor_IP() {
+
+	if (!empty($_SERVER['HTTP_CLIENT_IP'])) { 
+		return $_SERVER['HTTP_CLIENT_IP']; 
+	} 
+	else if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) { 
+		return $_SERVER['HTTP_X_FORWARDED_FOR']; 
+	} 
+	else { 
+		return $_SERVER['REMOTE_ADDR']; 
+	} 
+}
+
+
+add_action('init','jh_visitor_address_checker');
+function jh_visitor_address_checker(){
+	$jh_disabled_ip_address= get_option( 'jh_disabled_option' );
+    if (!empty($jh_disabled_ip_address['disabled_ip_country'])) {
+    	$jh_visitor_ip = jh_getvisitor_IP();
+		$jh_visitor_info = @unserialize(file_get_contents('http://ip-api.com/php/'.$jh_visitor_ip));
+		if(!empty($jh_visitor_info['countryCode'])){
+			if (in_array($jh_visitor_info['countryCode'], $jh_disabled_ip_address['disabled_ip_country'])){
+				echo __( "Your Country are blocked !", 'disabled-source-disabled-right-click-and-content-protection' );
+				exit();
+				wp_die();
+			}
+		}
+    }
+}
 
 ?>
