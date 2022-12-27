@@ -257,7 +257,12 @@ if( class_exists( 'CSF' ) ) {
           'ZW' => __( "Zimbabwe", 'disabled-source-disabled-right-click-and-content-protection' ),
         )
       ),
-
+      array(
+        'id'         => 'disabled-country-notify-text',
+        'type'       => 'textarea',
+        'title'      => __( 'Disable Country Notification', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default'      => __( 'Your Country are blocked !', 'disabled-source-disabled-right-click-and-content-protection' ),
+      )
     )
   ) );
 
