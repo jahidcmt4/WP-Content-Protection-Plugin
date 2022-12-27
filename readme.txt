@@ -38,7 +38,7 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable Comments
 * Disable by IP Address 
 * Disable by Country
-* Disable by Country Notification ( Upcoming )
+* Disable by Country Notification
 
 == Disable Comments ==
 
