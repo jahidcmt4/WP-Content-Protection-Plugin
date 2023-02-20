@@ -4,7 +4,7 @@ Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address
 Requires at least: 4.7
 Tested up to: 6.1.1
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -38,6 +38,7 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable Comments
 * Disable by IP Address 
 * Disable by Country
+* Disable by Country Notification
 
 == Disable Comments ==
 
@@ -98,6 +99,10 @@ No.
 2. Notification Text Panel
 
 == Changelog ==
+
+= 1.1.6 =
+
+* Added: Disable Country Blocked Message
 
 = 1.1.5 =
 

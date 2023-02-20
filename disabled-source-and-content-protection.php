@@ -3,7 +3,7 @@
  * Plugin Name:       Disabled Source, Disabled Right Click and Content Protection
  * Plugin URI:        https://themefic.com/
  * Description:       Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Blog.
- * Version:           1.1.5 
+ * Version:           1.1.6 
  * Requires at least: 4.7
  * Tested up to: 6.1.1
  * Requires PHP:      5.3

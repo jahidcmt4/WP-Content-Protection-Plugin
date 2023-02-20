@@ -132,7 +132,7 @@ function jh_visitor_address_checker(){
 		$jh_visitor_info = @unserialize(file_get_contents('http://ip-api.com/php/'.$jh_visitor_ip));
 		if(!empty($jh_visitor_info['countryCode'])){
 			if (in_array($jh_visitor_info['countryCode'], $jh_disabled_ip_address['disabled_ip_country'])){
-				echo __( "Your Country are blocked !", 'disabled-source-disabled-right-click-and-content-protection' );
+				echo !empty( $jh_disabled_ip_address['disabled-country-notify-text'] ) ? $jh_disabled_ip_address['disabled-country-notify-text'] : 'Your Country are blocked !';
 				exit();
 				wp_die();
 			}
