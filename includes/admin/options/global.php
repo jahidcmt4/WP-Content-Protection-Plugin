@@ -121,6 +121,11 @@ if( class_exists( 'CSF' ) ) {
     'title'  => __( 'Maintenance Mode', 'disabled-source-disabled-right-click-and-content-protection' ),
     'fields' => array(
       array(
+        'type'    => 'notice',
+        'style'   => 'danger',
+        'content' => __( "<b> Note: </b>If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL.", 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+      array(
       'id'    => 'enabled-maintenance',
       'type'  => 'switcher',
       'title' => __( 'Maintenance Mode', 'disabled-source-disabled-right-click-and-content-protection' ),

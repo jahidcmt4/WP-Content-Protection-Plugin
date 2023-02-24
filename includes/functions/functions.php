@@ -151,18 +151,28 @@ function jh_visitor_address_checker(){
     /**
 	 * Maintenance Mode Message
 	*/
+	if ( ! is_admin() && ! jh_is_login_page() ) {
+	    if (!empty($jh_disabled_ip_address['enabled-maintenance']) && $jh_disabled_ip_address['enabled-maintenance']=="1" ) {
+	    	
+			echo '<div class="jh-blocked-msg-page" style="background: #222;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">';
+			echo '<span style="color: red;font-size: 30px;padding: 0 20px;">';
+			echo !empty( $jh_disabled_ip_address['maintenance-text'] ) ? $jh_disabled_ip_address['maintenance-text'] : 'Our Website is under Maintenance, We will get back to you Soon.';
+			echo '<span>';
+			echo '</div>';
+			exit();
+			wp_die();
+				
+	    }
+	}
+}
 
-    if (!empty($jh_disabled_ip_address['enabled-maintenance']) && $jh_disabled_ip_address['enabled-maintenance']=="1" ) {
-    	
-		echo '<div class="jh-blocked-msg-page" style="background: #222;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">';
-		echo '<span style="color: red;font-size: 30px;padding: 0 20px;">';
-		echo !empty( $jh_disabled_ip_address['maintenance-text'] ) ? $jh_disabled_ip_address['maintenance-text'] : 'Our Website is under Maintenance, We will get back to you Soon.';
-		echo '<span>';
-		echo '</div>';
-		exit();
-		wp_die();
-			
-    }
+/**
+ * Maintenance Accessable Setting
+*/
+if ( !function_exists( 'jh_is_login_page' ) ) {
+	function jh_is_login_page() {
+	    return in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'));
+	}
 }
 
 ?>
