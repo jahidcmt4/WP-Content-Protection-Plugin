@@ -265,7 +265,7 @@ if( class_exists( 'CSF' ) ) {
           'PY' => __( "Paraguay", 'disabled-source-disabled-right-click-and-content-protection' ),
           'QA' => __( "Qatar", 'disabled-source-disabled-right-click-and-content-protection' ),
           'RO' => __( "Romania", 'disabled-source-disabled-right-click-and-content-protection' ),
-          'RU' => __( "   Russia", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'RU' => __( "Russia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'SA' => __( "Saudi Arabia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'SN' => __( "Senegal", 'disabled-source-disabled-right-click-and-content-protection' ),
           'RS' => __( "Serbia", 'disabled-source-disabled-right-click-and-content-protection' ),
