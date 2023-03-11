@@ -112,6 +112,7 @@ No.
 = 1.1.8 =
 
 * Added: Website Maintenance Settings
+* Added: Missing Country on Disable IP by Country Settings
 
 = 1.1.7 =
 
