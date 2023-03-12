@@ -77,11 +77,6 @@ if( class_exists( 'CSF' ) ) {
       'title' => __( 'Disable Ctrl+Shift+C and Ctrl+C', 'disabled-source-disabled-right-click-and-content-protection' ),
       'default' => true,
     ),
-    array(
-      'id'    => 'disabled-comments',
-      'type'  => 'switcher',
-      'title' => __( 'Disable Comments', 'disabled-source-disabled-right-click-and-content-protection' ),
-    ),
 
     )
   ) );
@@ -103,6 +98,46 @@ if( class_exists( 'CSF' ) ) {
         'title'      => __( 'Notification Text', 'disabled-source-disabled-right-click-and-content-protection' ),
         'default'      => __( 'You cannot copy content of this Page', 'disabled-source-disabled-right-click-and-content-protection' ),
         'dependency' => array( 'disabled-notification-status', '==', 'true' ),
+      )
+    )
+  ) );
+
+  // Disabled Comments
+
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable Comments', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+      'id'    => 'disabled-comments',
+      'type'  => 'switcher',
+      'title' => __( 'Disable Comments', 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+    )
+  ) );
+
+  // Website Maintenance Mode
+
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Maintenance Mode', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'type'    => 'notice',
+        'style'   => 'danger',
+        'content' => __( "<b> Note: </b>If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL.", 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+      array(
+      'id'    => 'enabled-maintenance',
+      'type'  => 'switcher',
+      'title' => __( 'Maintenance Mode', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'subtitle' => __( "This Option Enable you to show a message about the technical break in you Website.", 'disabled-source-disabled-right-click-and-content-protection' ),
+      'default' => false,
+      ),
+      array(
+        'id'         => 'maintenance-text',
+        'type'       => 'textarea',
+        'title'      => __( 'Maintenance Message', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default'      => __( 'Our Website is under Maintenance, We will get back to you Soon.', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'dependency' => array( 'enabled-maintenance', '==', 'true' ),
       )
     )
   ) );
@@ -230,6 +265,7 @@ if( class_exists( 'CSF' ) ) {
           'PY' => __( "Paraguay", 'disabled-source-disabled-right-click-and-content-protection' ),
           'QA' => __( "Qatar", 'disabled-source-disabled-right-click-and-content-protection' ),
           'RO' => __( "Romania", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'RU' => __( "Russia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'SA' => __( "Saudi Arabia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'SN' => __( "Senegal", 'disabled-source-disabled-right-click-and-content-protection' ),
           'RS' => __( "Serbia", 'disabled-source-disabled-right-click-and-content-protection' ),

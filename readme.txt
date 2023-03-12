@@ -1,15 +1,15 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
 Donate link: https://themefic.com/
-Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address
+Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
 Tested up to: 6.1.1
-Stable tag: 1.1.7
+Stable tag: 1.1.8
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Blog. 
+Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website. 
 
 == Description ==
 
@@ -17,9 +17,9 @@ Disabled Source, Disabled Right Click, and Content Protection is a very simple p
 
 The plugin is called copy content protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices. Our latest features block IP Addresses.
 
-== Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window ==
+= Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window =
 
-== Features ==
+= Features =
 
 * Content Copy Protection
 * Notification text
@@ -40,15 +40,20 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable by Country
 * Disable by Country Notification
 * Disable by Country Notification Page Design
-* Website Maintenance (Upcoming)
+* Website Maintenance
+* Website Maintenance Custom Design (Upcoming)
 
-== Disable Comments ==
+= Disable Comments =
 
 * If you planning to allow or disallow comments on your website you just activate the Disabled Source, Disabled Right Click, and Content Protection plugin.
 
-== Disable by IP Address ==
+= Disable by IP Address =
 
 * This feature enables users to block unwanted traffic from accessing your website frontend and backend by IP Address. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
+
+= Disable by Country =
+
+* This feature enables users to block unwanted traffic from accessing your website frontend and backend by Country. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
 
 
 <strong>Privacy Policy : </strong>
@@ -95,12 +100,19 @@ No.
 
 == Screenshots ==
 
-1. Disabled Settings Panel
-2. Disable by IP Address Panel
-2. Disable IP by Country Panel
-2. Notification Text Panel
+1. Disabled Settings
+2. Disable by IP Address Settings
+3. Maintenance Setting
+4. Disabled Notification Text Settings
+5. Disable IP by Country Settings
+6. Disabled Comments Settings
 
 == Changelog ==
+
+= 1.1.8 =
+
+* Added: Website Maintenance Settings
+* Added: Missing Country on Disable IP by Country Settings
 
 = 1.1.7 =
 
