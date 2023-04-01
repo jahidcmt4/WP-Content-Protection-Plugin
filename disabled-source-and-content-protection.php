@@ -32,6 +32,14 @@ if ( file_exists( JH_PATH . 'includes/functions/functions.php' ) ) {
 }
 
 /**
+ * Admin Notice include
+*/
+
+if ( file_exists( JH_PATH . 'includes/functions/notice.php' ) ) {
+    require_once JH_PATH . 'includes/functions/notice.php';
+}
+
+/**
  * Plugin Activation redirect page
  * https://developer.wordpress.org/reference/hooks/activated_plugin/
 */

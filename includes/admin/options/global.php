@@ -16,7 +16,6 @@ if( class_exists( 'CSF' ) ) {
     'show_sub_menu'           =>   false,
     'theme'                   =>   'dark',   
     'footer_text'             => 'Thanks for Active our Plugin',
-    'footer_credit'           =>   __( '<em>Enjoyed <strong>Disabled Source, Disabled Right Click and Content Protection</strong>? Please leave us a <a style="color:#e9570a;" href="https://wordpress.org/support/plugin/disabled-source-disabled-right-click-and-content-protection/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>', 'tourfic' ),  
   ) );
 
   // Images and Content Protection
