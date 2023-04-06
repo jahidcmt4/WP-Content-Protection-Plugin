@@ -297,7 +297,19 @@ if( class_exists( 'CSF' ) ) {
         'type'       => 'textarea',
         'title'      => __( 'Disable Country Notification', 'disabled-source-disabled-right-click-and-content-protection' ),
         'default'      => __( 'Your Country are blocked !', 'disabled-source-disabled-right-click-and-content-protection' ),
-      )
+      ),
+      array(
+        'id'    => 'country_disable_background',
+        'type'  => 'color',
+        'title' => __( 'Disable Page Background', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#222'
+      ),
+      array(
+        'id'    => 'country_disable_color',
+        'type'  => 'color',
+        'title' => __( 'Disable Text Color', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#FF0000'
+      ),
     )
   ) );
 
