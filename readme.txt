@@ -112,7 +112,7 @@ No.
 = 1.2.0 =
 
 * Added: Admin Notice Added
-* Update: Appsero Update
+* Update: Country Blocked Page Design Panel
 
 = 1.1.9 =
 
