@@ -16,7 +16,6 @@ if( class_exists( 'CSF' ) ) {
     'show_sub_menu'           =>   false,
     'theme'                   =>   'dark',   
     'footer_text'             => 'Thanks for Active our Plugin',
-    'footer_credit'           =>   __( '<em>Enjoyed <strong>Disabled Source, Disabled Right Click and Content Protection</strong>? Please leave us a <a style="color:#e9570a;" href="https://wordpress.org/support/plugin/disabled-source-disabled-right-click-and-content-protection/reviews/?filter=5/#new-post" target="_blank">★★★★★</a> rating. We really appreciate your support!</em>', 'tourfic' ),  
   ) );
 
   // Images and Content Protection
@@ -298,7 +297,19 @@ if( class_exists( 'CSF' ) ) {
         'type'       => 'textarea',
         'title'      => __( 'Disable Country Notification', 'disabled-source-disabled-right-click-and-content-protection' ),
         'default'      => __( 'Your Country are blocked !', 'disabled-source-disabled-right-click-and-content-protection' ),
-      )
+      ),
+      array(
+        'id'    => 'country_disable_background',
+        'type'  => 'color',
+        'title' => __( 'Disable Page Background', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#222'
+      ),
+      array(
+        'id'    => 'country_disable_color',
+        'type'  => 'color',
+        'title' => __( 'Disable Text Color', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#FF0000'
+      ),
     )
   ) );
 

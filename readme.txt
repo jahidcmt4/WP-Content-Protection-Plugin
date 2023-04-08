@@ -4,7 +4,7 @@ Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
 Tested up to: 6.2
-Stable tag: 1.1.9
+Stable tag: 1.2.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,6 +108,11 @@ No.
 6. Disabled Comments Settings
 
 == Changelog ==
+
+= 1.2.0 =
+
+* Added: Admin Notice Added
+* Update: Country Blocked Page Design Panel
 
 = 1.1.9 =
 
