@@ -102,13 +102,15 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disabled-notify-background',
         'type'  => 'color',
         'title' => __( 'Notification Background Color', 'disabled-source-disabled-right-click-and-content-protection' ),
-        'default' => '#F2DEDE'
+        'default' => '#F2DEDE',
+        'dependency' => array( 'disabled-notification-status', '==', 'true' )
       ),
       array(
         'id'    => 'disabled-notify-color',
         'type'  => 'color',
         'title' => __( 'Notification Text Color', 'disabled-source-disabled-right-click-and-content-protection' ),
-        'default' => '#B94A48'
+        'default' => '#B94A48',
+        'dependency' => array( 'disabled-notification-status', '==', 'true' )
       ),
     )
   ) );
