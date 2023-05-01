@@ -176,4 +176,17 @@ if ( !function_exists( 'jh_is_login_page' ) ) {
 	}
 }
 
+add_action('wp_head','jh_disable_notifcation_style');
+function jh_disable_notifcation_style(){
+	$jh_disabled_notifications= get_option( 'jh_disabled_option' );
+	if( !empty($jh_disabled_notifications['disabled-notify-background']) || !empty($jh_disabled_notifications['disabled-notify-color']) ){
+		echo '<style>
+		.notifyjs-bootstrap-base {
+			background-color: ' .esc_attr($jh_disabled_notifications['disabled-notify-background']). ' !important;
+			border-color: ' .esc_attr($jh_disabled_notifications['disabled-notify-background']). '!important;
+			color: ' .esc_attr($jh_disabled_notifications['disabled-notify-color']). '!important;
+		}
+		</style>';
+	}
+}
 ?>
