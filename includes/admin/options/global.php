@@ -97,7 +97,19 @@ if( class_exists( 'CSF' ) ) {
         'title'      => __( 'Notification Text', 'disabled-source-disabled-right-click-and-content-protection' ),
         'default'      => __( 'You cannot copy content of this Page', 'disabled-source-disabled-right-click-and-content-protection' ),
         'dependency' => array( 'disabled-notification-status', '==', 'true' ),
-      )
+      ),
+      array(
+        'id'    => 'disabled-notify-background',
+        'type'  => 'color',
+        'title' => __( 'Notification Background Color', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#F2DEDE'
+      ),
+      array(
+        'id'    => 'disabled-notify-color',
+        'type'  => 'color',
+        'title' => __( 'Notification Text Color', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#B94A48'
+      ),
     )
   ) );
 
