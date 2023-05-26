@@ -200,6 +200,7 @@ if( class_exists( 'CSF' ) ) {
           'AM' => __( "Armenia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'AU' => __( "Australia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'AT' => __( "Austria", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'AW' => __( "Aruba", 'disabled-source-disabled-right-click-and-content-protection' ),
           'BS' => __( "Bahamas", 'disabled-source-disabled-right-click-and-content-protection' ),
           'BH' => __( "Bahrain", 'disabled-source-disabled-right-click-and-content-protection' ),
           'BD' => __( "Bangladesh", 'disabled-source-disabled-right-click-and-content-protection' ),
