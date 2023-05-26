@@ -3,8 +3,8 @@ Contributors: jahidcse
 Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
-Tested up to: 6.2
-Stable tag: 1.2.1
+Tested up to: 6.2.2
+Stable tag: 1.2.3
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -108,6 +108,16 @@ No.
 6. Disabled Comments Settings
 
 == Changelog ==
+
+= 1.2.3 =
+
+* Added: Compatibility with WordPress 6.2.2
+* Added: Missing Country Added
+
+= 1.2.2 =
+
+* Added: Dependancy Added on Notification Design Option
+* Update: Compatibility check for WooCommerce
 
 = 1.2.1 =
 
