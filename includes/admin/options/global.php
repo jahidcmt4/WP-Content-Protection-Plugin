@@ -226,6 +226,8 @@ if( class_exists( 'CSF' ) ) {
           'EC' => __( "Ecuador", 'disabled-source-disabled-right-click-and-content-protection' ),
           'EG' => __( "Egypt", 'disabled-source-disabled-right-click-and-content-protection' ),
           'EE' => __( "Estonia", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'ET' => __( "Ethiopia", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'ER' => __( "Eritrea", 'disabled-source-disabled-right-click-and-content-protection' ),
           'FI' => __( "Finland", 'disabled-source-disabled-right-click-and-content-protection' ),
           'FI' => __( "France", 'disabled-source-disabled-right-click-and-content-protection' ),
           'GE' => __( "Georgia", 'disabled-source-disabled-right-click-and-content-protection' ),
