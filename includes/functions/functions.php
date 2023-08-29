@@ -41,16 +41,16 @@ if ( ! function_exists( 'disabled_source_scripts_details' ) ) {
 		}
 		wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
 		$jh_disabled_options_data_pass = array(
-			'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
-			'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
-			'disabled_f12' => !empty( $jhdoption['disabled-f12'] ) ? $jhdoption['disabled-f12'] : '',
-			'disabled_ctst_i' => !empty( $jhdoption['disabled-ct-st-i'] ) ? $jhdoption['disabled-ct-st-i'] : '',
-			'disabled_ctst_j' => !empty( $jhdoption['disabled-ct-st-j'] ) ? $jhdoption['disabled-ct-st-j'] : '',
-			'disabled_ctst_c' => !empty( $jhdoption['disabled-ct-st-c'] ) ? $jhdoption['disabled-ct-st-c'] : '',
-			'disabled_ct_s' => !empty( $jhdoption['disabled-ct-s'] ) ? $jhdoption['disabled-ct-s'] : '',
-			'disabled_dragging_img' => !empty( $jhdoption['disabled-img-drag'] ) ? $jhdoption['disabled-img-drag'] : '',
-			'disabled_notifi_status' => !empty( $jhdoption['disabled-notification-status'] ) ? $jhdoption['disabled-notification-status'] : '',
-			'disabled_notifi_text' => !empty( $jhdoption['disabled-notify-text'] ) ? $jhdoption['disabled-notify-text'] : ''
+		    'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
+		    'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
+		    'disabled_f12' => !empty( $jhdoption['disabled-f12'] ) ? $jhdoption['disabled-f12'] : '',
+		    'disabled_ctst_i' => !empty( $jhdoption['disabled-ct-st-i'] ) ? $jhdoption['disabled-ct-st-i'] : '',
+		    'disabled_ctst_j' => !empty( $jhdoption['disabled-ct-st-j'] ) ? $jhdoption['disabled-ct-st-j'] : '',
+		    'disabled_ctst_c' => !empty( $jhdoption['disabled-ct-st-c'] ) ? $jhdoption['disabled-ct-st-c'] : '',
+		    'disabled_ct_s' => !empty( $jhdoption['disabled-ct-s'] ) ? $jhdoption['disabled-ct-s'] : '',
+		    'disabled_dragging_img' => !empty( $jhdoption['disabled-img-drag'] ) ? $jhdoption['disabled-img-drag'] : '',
+		    'disabled_notifi_status' => !empty( $jhdoption['disabled-notification-status'] ) ? $jhdoption['disabled-notification-status'] : '',
+		    'disabled_notifi_text' => !empty( $jhdoption['disabled-notify-text'] ) ? $jhdoption['disabled-notify-text'] : ''
 		);
 		wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
 	}
