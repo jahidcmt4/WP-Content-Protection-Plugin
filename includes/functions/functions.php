@@ -32,6 +32,7 @@ function disabled_source_admin_page_script(){
 */
 if ( ! function_exists( 'disabled_source_scripts_details' ) ) {
 	function disabled_source_scripts_details(){
+
 		$jhdoption = get_option( 'jh_disabled_option' );
 		if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
 			wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
@@ -53,13 +54,13 @@ if ( ! function_exists( 'disabled_source_scripts_details' ) ) {
 		    'disabled_notifi_text' => !empty( $jhdoption['disabled-notify-text'] ) ? $jhdoption['disabled-notify-text'] : ''
 		);
 		wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
+
 	}
 }
-
 add_action('wp_enqueue_scripts', 'disabled_source_front_page_script', 100);
 function disabled_source_front_page_script(){
-	if (!is_user_logged_in() )
-    {
+
+	if (!is_user_logged_in() ){
     	disabled_source_scripts_details();
 	}else{
 		$jh_user = wp_get_current_user();
