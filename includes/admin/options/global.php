@@ -39,7 +39,8 @@ if( class_exists( 'CSF' ) ) {
     array(
       'id'    => 'disabled-img-drag',
       'type'  => 'switcher',
-      'title' => __( 'Disable Images Dragging', 'disabled-source-disabled-right-click-and-content-protection' )
+      'title' => __( 'Disable Images Dragging', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'default' => true
     ),
     array(
       'id'    => 'disabled-ct-u',
@@ -50,7 +51,8 @@ if( class_exists( 'CSF' ) ) {
     array(
       'id'    => 'disabled-ct-s',
       'type'  => 'switcher',
-      'title' => __( 'Disable Save (CTRL+S)', 'disabled-source-disabled-right-click-and-content-protection' )
+      'title' => __( 'Disable Save (CTRL+S)', 'disabled-source-disabled-right-click-and-content-protection' ),
+      'default' => true
     ),
     array(
       'id'    => 'disabled-f12',
@@ -136,7 +138,8 @@ if( class_exists( 'CSF' ) ) {
       array(
         'type'    => 'notice',
         'style'   => 'danger',
-        'content' => __( "<b> Note: </b>If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL.", 'disabled-source-disabled-right-click-and-content-protection' ),
+        'class'   => 'jh_admin_feature_notice',
+        'content' => __( "<b> Note: If you enable these settings, You can access only (wp-admin, wp-login.php, and wp-register.php) These pages. Don't accept your custom login URL. </b>", 'disabled-source-disabled-right-click-and-content-protection' ),
       ),
       array(
       'id'    => 'enabled-maintenance',
@@ -162,11 +165,16 @@ if( class_exists( 'CSF' ) ) {
     'title'  => __( 'Block by IP Address', 'disabled-source-disabled-right-click-and-content-protection' ),
     'fields' => array(
       array(
+        'type'    => 'notice',
+        'style'   => 'danger',
+        'class'   => 'jh_admin_feature_notice',
+        'content' => __( "<b>Note: Never use your own IP Address. For Example, if your IP Address is 127.0.0.1, then never add this into a field. Otherwise, you can't access your own Website Without VPN.</b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+      array(
         'id'     => 'disabled_ip_section',
         'class'     => 'jh-warning-title',
         'type'   => 'repeater',
         'title'  => __( 'IP Address', 'disabled-source-disabled-right-click-and-content-protection' ),
-        'subtitle' => __( "Never use your own IP Address. Then you can't access your Website.", 'disabled-source-disabled-right-click-and-content-protection' ),
         'fields' => array(
           array(
             'id'    => 'disabled_ip',
@@ -184,11 +192,16 @@ if( class_exists( 'CSF' ) ) {
     'title'  => __( 'IP Block by Country', 'disabled-source-disabled-right-click-and-content-protection' ),
     'fields' => array(
       array(
+        'type'    => 'notice',
+        'style'   => 'danger',
+        'class'   => 'jh_admin_feature_notice',
+        'content' => __( "<b>Note: Never select your own Country. For Example, if your Country is the United Kingdom, then you never select the United Kingdom. Otherwise, you can't access your own Website Without VPN.</b>", 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+      array(
         'id'         => 'disabled_ip_country',
         'class'     => 'jh-warning-title',
         'type'       => 'checkbox',
         'title'  => __( 'Block By Country', 'disabled-source-disabled-right-click-and-content-protection' ),
-        'subtitle' => __( "Never Checked Your Country. Then you can't access your Website.", 'disabled-source-disabled-right-click-and-content-protection' ),
         'inline'  => true,
         'options'    => array(
           'AF' => __( "Afghanistan", 'disabled-source-disabled-right-click-and-content-protection' ),

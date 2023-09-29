@@ -52,3 +52,8 @@
 .jh_disable_review_notice .review_notice_dismiss {
     padding: 2px;
 }
+
+/* admin feature notice */
+.jh_admin_feature_notice .csf-notice-danger{
+  background-color: #ffdddd !important;
+}
