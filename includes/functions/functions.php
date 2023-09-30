@@ -159,8 +159,14 @@ function jh_visitor_address_checker(){
     if (!empty($jh_disabled_ip_address['disabled_ip_section'])) {
     	$jh_visitor_ip = jh_getvisitor_IP();
 		$jh_visitor_info = @unserialize(file_get_contents('http://ip-api.com/php/'.$jh_visitor_ip));
+
+		$jh_disabled_ip_address_list = [];
+    	foreach($jh_disabled_ip_address['disabled_ip_section'] as $singleip){
+    		$jh_disabled_ip_address_list[] = $singleip['disabled_ip'];
+    	}
+
 		if(!empty($jh_visitor_info['query'])){
-			if (in_array($jh_visitor_info['query'], $jh_disabled_ip_address['disabled_ip_section'])){
+			if (in_array($jh_visitor_info['query'], $jh_disabled_ip_address_list)){
 				?>
 				<div class="jh-blocked-msg-page" style="background: <?php echo !empty($jh_disabled_ip_address['ip_disable_background']) ? esc_attr($jh_disabled_ip_address['ip_disable_background']) : '#222'; ?>;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">
 				<span style="color: <?php echo !empty($jh_disabled_ip_address['ip_disable_color']) ? esc_attr($jh_disabled_ip_address['ip_disable_color']) : 'red'; ?>;font-size: 30px;padding: 0 20px;">
