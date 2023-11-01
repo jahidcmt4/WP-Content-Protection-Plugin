@@ -1,5 +1,15 @@
 if (jh_disabled_options_data.disabled_click == "1") {
    document.addEventListener('contextmenu', function(e) {
+      if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
+         jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
+            {position:"right",
+            className: 'error',  
+            showAnimation: 'fadeIn', 
+            hideAnimation: 'fadeOut', 
+            style: 'bootstrap'
+            }
+         );
+      }
       e.preventDefault();
    });
 }
