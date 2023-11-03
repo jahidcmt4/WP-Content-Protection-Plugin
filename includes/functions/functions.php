@@ -117,24 +117,6 @@ if( !empty($jh_disabled_options['disabled-comments']) && $jh_disabled_options['d
 
 }
 
-/**
- * IP Address Blocker
-*/
-
-function disabled_source_ipblocker(){
-	$jh_disabled_ip_address= get_option( 'jh_disabled_option' );
-	
-    if (!empty($jh_disabled_ip_address['disabled_ip_section'])) {
-    	$jh_disabled_ip_address_list = [];
-    	foreach($jh_disabled_ip_address['disabled_ip_section'] as $singleip){
-    		$jh_disabled_ip_address_list[] = "Deny from {$singleip['disabled_ip']}";
-    	}
-    	$htaccess = ABSPATH . ".htaccess";
-        insert_with_markers($htaccess, 'JHIPBlocker', $jh_disabled_ip_address_list);
-    }
-}
-add_action('csf_jh_disabled_option_save_after', 'disabled_source_ipblocker');
-
 function jh_getvisitor_IP() {
 
 	if (!empty($_SERVER['HTTP_CLIENT_IP'])) { 
@@ -152,6 +134,33 @@ function jh_getvisitor_IP() {
 add_action('init','jh_visitor_address_checker');
 function jh_visitor_address_checker(){
 	$jh_disabled_ip_address= get_option( 'jh_disabled_option' );
+
+	/**
+	 * IP Address Blocked Message
+	*/
+    if (!empty($jh_disabled_ip_address['disabled_ip_section'])) {
+    	$jh_visitor_ip = jh_getvisitor_IP();
+		$jh_visitor_info = @unserialize(file_get_contents('http://ip-api.com/php/'.$jh_visitor_ip));
+
+		$jh_disabled_ip_address_list = [];
+    	foreach($jh_disabled_ip_address['disabled_ip_section'] as $singleip){
+    		$jh_disabled_ip_address_list[] = $singleip['disabled_ip'];
+    	}
+
+		if(!empty($jh_visitor_info['query'])){
+			if (in_array($jh_visitor_info['query'], $jh_disabled_ip_address_list)){
+				?>
+				<div class="jh-blocked-msg-page" style="background: <?php echo !empty($jh_disabled_ip_address['ip_disable_background']) ? esc_attr($jh_disabled_ip_address['ip_disable_background']) : '#222'; ?>;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">
+				<span style="color: <?php echo !empty($jh_disabled_ip_address['ip_disable_color']) ? esc_attr($jh_disabled_ip_address['ip_disable_color']) : 'red'; ?>;font-size: 30px;padding: 0 20px;">
+				<?php echo !empty( $jh_disabled_ip_address['disabled-ip-notify-text'] ) ? $jh_disabled_ip_address['disabled-ip-notify-text'] : 'Your IP is blocked !'; ?>
+				<span> 
+				</div>
+				<?php
+				exit();
+				wp_die();
+			}
+		}
+    }
 
 	/**
 	 * Country Blocked Message

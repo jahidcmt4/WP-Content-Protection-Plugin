@@ -181,7 +181,25 @@ if( class_exists( 'CSF' ) ) {
             'type'  => 'text'
           )
         )
-      )
+      ),
+      array(
+        'id'         => 'disabled-ip-notify-text',
+        'type'       => 'textarea',
+        'title'      => __( 'Disable IP Notification', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default'      => __( 'Your IP is blocked !', 'disabled-source-disabled-right-click-and-content-protection' ),
+      ),
+      array(
+        'id'    => 'ip_disable_background',
+        'type'  => 'color',
+        'title' => __( 'Disable Page Background', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#222'
+      ),
+      array(
+        'id'    => 'ip_disable_color',
+        'type'  => 'color',
+        'title' => __( 'Disable Text Color', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => '#FF0000'
+      ),
     )
   ) );
 
