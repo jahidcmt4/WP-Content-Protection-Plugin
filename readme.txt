@@ -1,15 +1,14 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
-Donate link: https://themefic.com/
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 1.3.0
+Stable tag: 1.3.1
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website. 
+Disable Source(Ctrl+U), Disable Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website. 
 
 == Description ==
 
@@ -17,9 +16,9 @@ Disabled Source, Disabled Right Click, and Content Protection is a very simple p
 
 The plugin is called copy content protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices. Our latest features block IP Addresses.
 
-= Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window =
+<strong> Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window </strong>
 
-= Features =
+= 🎉 Features =
 
 * Content Copy Protection
 * Notification text
@@ -37,21 +36,23 @@ The plugin is called copy content protection. It is very easy to use and install
 * Disable Ctrl+Shift+U
 * Disable Comments
 * Disable by IP Address 
+* Disable by IP Address Page Design
 * Disable by Country
 * Disable by Country Notification
 * Disable by Country Notification Page Design
 * Website Maintenance
 * Website Maintenance Custom Design
+* Disable by Role wise (upcoming)
 
-= Disable Comments =
+= 🎉 Disable Comments =
 
 * If you planning to allow or disallow comments on your website you just activate the Disabled Source, Disabled Right Click, and Content Protection plugin.
 
-= Disable by IP Address =
+= 🎉 Disable by IP Address =
 
 * This feature enables users to block unwanted traffic from accessing your website frontend and backend by IP Address. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
 
-= Disable by Country =
+= 🎉 Disable by Country =
 
 * This feature enables users to block unwanted traffic from accessing your website frontend and backend by Country. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
 
@@ -74,40 +75,44 @@ Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confi
 
 == Frequently Asked Questions ==
 
-= How to disable right click on WordPress ? =
+= How to disable right click on WordPress? =
 
 Just install our plugin and disable right click.
 
 = How to disable F12 on WordPress Website? =
 
-Just install our plugin and disable F12 Button.
+Just install our plugin and disable the F12 Button.
 
-= Can I Protect my website images ? =
-
-Yes.
-
-= Can I Protect my website content ? =
+= Can I Protect my website images? =
 
 Yes.
 
-= Can I disable comments on my website ? =
+= Can I Protect my website content? =
 
 Yes.
 
-= are there any disadvantages to Google Ranking ? =
+= Can I disable comments on my website? =
+
+Yes.
+
+= are there any disadvantages to Google Ranking? =
 
 No.
 
 == Screenshots ==
 
-1. Disabled Settings
-2. Disable by IP Address Settings
-3. Maintenance Setting
-4. Disabled Notification Text Settings
-5. Disable IP by Country Settings
-6. Disabled Comments Settings
+1. Disable Content and Images Settings
+2. Disable Notification Settings
+3. Disable Comments Settings
+4. Maintenance Settings
+5. Disable by IP Address Settings
+6. Disable IP by Country Settings
 
 == Changelog ==
+
+= 1.3.1 =
+
+* Added: Compatibility with WooCommerce
 
 = 1.3.0 =
 
