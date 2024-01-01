@@ -1,9 +1,9 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
-Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, css, html, disable comments, disable ip address, maintenance, country blocked
+Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, no right click, right click off, protect content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, CSS, HTML, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 1.3.1
+Stable tag: 1.3.2
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -16,14 +16,14 @@ Disabled Source, Disabled Right Click, and Content Protection is a very simple p
 
 The plugin is called copy content protection. It is very easy to use and install. This plugin protects content both on PC and mobile devices. Our latest features block IP Addresses.
 
-<strong> Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window </strong>
+<strong> Activate Disabled Source, Disabled Right Click, and Content Protection plugin and check those features by opening your website on a private/Incognito window/By Logout </strong>
 
 = 🎉 Features =
 
 * Content Copy Protection
 * Notification text
 * Disable Developer Tools
-* Disable Right Click
+* Right Click Off
 * Disable Image Drag/Drop
 * Disable F12
 * Disable Ctrl+I
@@ -43,6 +43,7 @@ The plugin is called copy content protection. It is very easy to use and install
 * Website Maintenance
 * Website Maintenance Custom Design
 * Disable by Role wise (upcoming)
+* Disable Print Preview Page (upcoming)
 
 = 🎉 Disable Comments =
 
@@ -109,6 +110,10 @@ No.
 6. Disable IP by Country Settings
 
 == Changelog ==
+
+= 1.3.2 =
+
+* Added: Notification Position Settings
 
 = 1.3.1 =
 
