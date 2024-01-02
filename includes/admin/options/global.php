@@ -55,6 +55,11 @@ if( class_exists( 'CSF' ) ) {
       'default' => true
     ),
     array(
+      'id'    => 'disabled-ct-p',
+      'type'  => 'switcher',
+      'title' => __( 'Disable Print Preview (CTRL+P)', 'disabled-source-disabled-right-click-and-content-protection' )
+    ),
+    array(
       'id'    => 'disabled-f12',
       'type'  => 'switcher',
       'title' => __( 'Disable F12', 'disabled-source-disabled-right-click-and-content-protection' ),
