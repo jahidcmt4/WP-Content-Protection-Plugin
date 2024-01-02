@@ -94,6 +94,23 @@ if( class_exists( 'CSF' ) ) {
         'default' => false,
       ),
       array(
+        'id'          => 'disabled-notification-position',
+        'type'        => 'select',
+        'title'       => __( 'Notification Position', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options'     => array(
+          'left top'  => __( 'Left Top', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'left center'  => __( 'Left Center', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'left bottom'  => __( 'Left Bottom', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'right top'  => __( 'Right Top', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'right center'  => __( 'Right Center', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'right bottom'  => __( 'Right Bottom', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'top center'  => __( 'Top Center', 'disabled-source-disabled-right-click-and-content-protection' ),
+          'bottom center'  => __( 'Bottom Center', 'disabled-source-disabled-right-click-and-content-protection' ),
+        ),
+        'default'     => 'right center',
+        'dependency' => array( 'disabled-notification-status', '==', 'true' ),
+      ),
+      array(
         'id'         => 'disabled-notify-text',
         'type'       => 'text',
         'title'      => __( 'Notification Text', 'disabled-source-disabled-right-click-and-content-protection' ),

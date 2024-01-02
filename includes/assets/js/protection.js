@@ -2,7 +2,8 @@ if (jh_disabled_options_data.disabled_click == "1") {
    document.addEventListener('contextmenu', function(e) {
       if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
          jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-            {position:"right",
+            {
+            position: jh_disabled_options_data.disabled_notifi_position,
             className: 'error',  
             showAnimation: 'fadeIn', 
             hideAnimation: 'fadeOut', 
@@ -19,7 +20,8 @@ document.onkeydown = function(e) {
       if (event.keyCode == 123) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -34,7 +36,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -47,7 +50,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.keyCode == 'I'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -62,7 +66,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -75,7 +80,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -90,7 +96,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -103,7 +110,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.keyCode == 'J'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -118,7 +126,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
@@ -133,7 +142,8 @@ document.onkeydown = function(e) {
       if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
             jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
-               {position:"right",
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
                className: 'error',  
                showAnimation: 'fadeIn', 
                hideAnimation: 'fadeOut', 
