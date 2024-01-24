@@ -138,6 +138,22 @@ document.onkeydown = function(e) {
          return false;
       }
    }
+   if (jh_disabled_options_data.disabled_ct_p == "1") {
+      if (e.ctrlKey && e.keyCode == 'P'.charCodeAt(0)) {
+         if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
+            jQuery.notify(jh_disabled_options_data.disabled_notifi_text,
+               {
+               position: jh_disabled_options_data.disabled_notifi_position,
+               className: 'error',  
+               showAnimation: 'fadeIn', 
+               hideAnimation: 'fadeOut', 
+               style: 'bootstrap'
+               }
+            );
+         }
+         return false;
+      }
+   }
    if (jh_disabled_options_data.disabled_ct_s == "1") {
       if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
          if(jh_disabled_options_data.disabled_notifi_status=="1" && jh_disabled_options_data.disabled_notifi_text!=""){
