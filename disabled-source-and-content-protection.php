@@ -16,6 +16,12 @@
 // don't load directly
 defined( 'ABSPATH' ) || exit;
 
+/**
+ * Including Plugin file
+ *
+ * @since 1.3.4
+ */
+include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 //URL
 
@@ -61,7 +67,15 @@ add_filter( 'plugin_action_links_' . plugin_basename( __FILE__ ),'disablde_sourc
 
 function disablde_source_deshboard_settings( $links ) {
   $link = sprintf( "<a href='%s' style='color:#2271b1;'>%s</a>", admin_url( 'admin.php?page=disabled-source-disabled-right-click-and-content-protection'), __( 'Settings', 'disabled-source-disabled-right-click-and-content-protection' ) );
-  array_push( $links, $link );
+
+    if ( !is_plugin_active( 'ctblock-pro/ctblock-pro.php' ) ) {
+        $gopro_link = sprintf( "<a href='%s' style='color:#39b54a;font-weight: 700;' target='_blank'>%s</a>", esc_url( 'https://tourfic.com/go/upgrade'), __( 'Get Pro', 'disabled-source-disabled-right-click-and-content-protection' ) );
+
+        array_push( $links, $link );
+        array_push( $links, $gopro_link );
+    }else{
+        array_push( $links, $link );
+    }
 
   return $links;
 }
