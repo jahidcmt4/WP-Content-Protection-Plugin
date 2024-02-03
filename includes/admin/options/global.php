@@ -3,6 +3,25 @@ defined( 'ABSPATH' ) || exit;
 
 $badge_up     = '<div class="disable-up-badge"><span class="disable-upcoming">' .__("Upcoming", "disabled-source-disabled-right-click-and-content-protection"). '</span></div>';
 
+$badge_pro = '<div class="disable-pro-badge"><span class="is-pro">' .__("Pro Feature", "disabled-source-disabled-right-click-and-content-protection"). '</span></div>';
+
+if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
+	function disable_get_all_author_roles() {
+		$roles = wp_roles()->get_names();
+    $all_roles = [];
+    foreach ($roles as $role => $name) {
+      if("administrator"!=$role){
+        if("customer"==$role){
+          $all_roles[$role] = $name;
+        }else{
+          $all_roles[] = $name ." (Pro)";
+        }
+      }
+    }
+    return $all_roles;
+	}
+}
+
 if( class_exists( 'CSF' ) ) {
 
   $prefix = 'jh_disabled_option';
@@ -18,7 +37,7 @@ if( class_exists( 'CSF' ) ) {
     'footer_text'             => 'Thanks for Active our Plugin',
   ) );
 
-  // Images and Content Protection
+  // Images Content Protection
 
   CSF::createSection( $prefix, array(
     'title'  => __( 'Images and Content', 'disabled-source-disabled-right-click-and-content-protection' ),
@@ -84,6 +103,34 @@ if( class_exists( 'CSF' ) ) {
       'default' => true,
     ),
 
+    )
+  ) );
+
+  // Watermark Images Protection
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Watermark Images', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => '',
+        'class' => 'is-pro-feature',
+        'type'  => 'switcher',
+        'title' => __( 'Images Watermark'.$badge_pro, 'disabled-source-disabled-right-click-and-content-protection' ),
+        'default' => true
+      ),
+    )
+  ) );
+
+  // Disable By roles
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disable-roles',
+        'type'  => 'checkbox',
+        'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options' => disable_get_all_author_roles(),
+        'default' => 'customer'
+      ),
     )
   ) );
 

@@ -11,9 +11,14 @@ if ( file_exists( JH_PATH . 'includes/admin/framework/codestar-framework.php' ) 
 /**
  * Global Option Page
 */
-
-if ( file_exists( JH_PATH . 'includes/admin/options/global.php' ) ) {
-    require_once JH_PATH . 'includes/admin/options/global.php';
+if (class_exists('CTBLOCK_PRO_INIT')) {
+	if ( file_exists( CTBLOCK_PRO_PATH . 'includes/admin/options/global.php' ) ) {
+		require_once CTBLOCK_PRO_PATH . 'includes/admin/options/global.php';
+	}
+}else{
+	if ( file_exists( JH_PATH . 'includes/admin/options/global.php' ) ) {
+		require_once JH_PATH . 'includes/admin/options/global.php';
+	}
 }
 
 

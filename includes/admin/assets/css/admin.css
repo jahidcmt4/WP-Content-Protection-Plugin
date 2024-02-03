@@ -12,7 +12,25 @@
 .jh-warning-title .csf-subtitle-text{
     color: red;
 }
-
+.is-pro-feature{
+  user-select: none;
+  opacity: .6;
+}
+.disable-pro-badge{
+  display: block;
+  margin-top: 5px;
+}
+.disable-pro-badge .is-pro{
+  display: inline-block;
+  color: #fff;
+  padding: 3px 10px 3px 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 13px;
+  background: #f44336 ;
+}
 
 /* Review admin notice CSS */
 
