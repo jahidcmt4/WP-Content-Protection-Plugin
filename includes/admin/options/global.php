@@ -133,6 +133,40 @@ if( class_exists( 'CSF' ) ) {
       ),
     )
   ) );
+  
+  // Disable By pages
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Block By Pages', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => '',
+        'class' => 'is-pro-feature',
+        'type'  => 'select',
+        'title' => __( 'Block By Pages'. $badge_pro, 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options'     => 'pages',
+        'chosen'      => true,
+        'multiple'    => true,
+        'placeholder' => "If left empty, it will affect all pages.",
+      ),
+    )
+  ) );
+
+  // Disable By Post Type
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Block by Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => '',
+        'type'  => 'select',
+        'title' => __( 'Block By Post Type'. $badge_pro, 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options'     => 'post_types',
+        'chosen'      => true,
+        'multiple'    => true,
+        'placeholder' => "If left empty, it will affect all Post Type.",
+        'class' => 'is-pro-feature',
+      ),
+    )
+  ) );
 
   // Disabled Notification
 

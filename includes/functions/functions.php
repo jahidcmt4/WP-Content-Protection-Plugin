@@ -41,12 +41,13 @@ function disabled_source_front_page_script(){
 
 	$jhdoption = get_option( 'jh_disabled_option' );
 	if (!is_user_logged_in() ){
-    	if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
+    	if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" && (apply_filters( 'ctblock_pages_permission', $pages_permission = '') || apply_filters( 'ctblock_post_type_permission', $post_type_permission = '')) ){
 			wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
 		}
-		if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
+		if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" && (apply_filters( 'ctblock_pages_permission', $pages_permission = '') || apply_filters( 'ctblock_post_type_permission', $post_type_permission = '')) ){
 			wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 		}
+		if( apply_filters( 'ctblock_pages_permission', $pages_permission = '') || apply_filters( 'ctblock_post_type_permission', $post_type_permission = '') ){
 		wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
 		$jh_disabled_options_data_pass = array(
 		    'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
@@ -63,16 +64,18 @@ function disabled_source_front_page_script(){
 			'disabled_ct_p' => !empty( $jhdoption['disabled-ct-p'] ) ? $jhdoption['disabled-ct-p'] : ''
 		);
 		wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
+		}
 	}else{
 		$jh_user = wp_get_current_user();
         if( apply_filters( 'ctblock_roles_permission', $roles_permission = '')){
 
-			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
+			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" && (apply_filters( 'ctblock_pages_permission', $pages_permission = '') || apply_filters( 'ctblock_post_type_permission', $post_type_permission = '')) ){
 				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
 			}
-			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
+			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" && (apply_filters( 'ctblock_pages_permission', $pages_permission = '') || apply_filters( 'ctblock_post_type_permission', $post_type_permission = '')) ){
 				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 			}
+			if( apply_filters( 'ctblock_pages_permission', $pages_permission = '') || apply_filters( 'ctblock_post_type_permission', $post_type_permission = '') ){
 			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
 			$jh_disabled_options_data_pass = array(
 				'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
@@ -89,7 +92,7 @@ function disabled_source_front_page_script(){
 				'disabled_ct_p' => !empty( $jhdoption['disabled-ct-p'] ) ? $jhdoption['disabled-ct-p'] : ''
 			);
 			wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
-			
+			}
 		}
 	}
 }
@@ -233,6 +236,7 @@ function jh_disable_notifcation_style(){
 	}
 }
 
+
 add_filter('ctblock_roles_permission', 'ctblock_roles_wise_permission_callback');
 function ctblock_roles_wise_permission_callback($ctblock_roles_permission){
 	$jhdoption = get_option( 'jh_disabled_option' );
@@ -244,6 +248,41 @@ function ctblock_roles_wise_permission_callback($ctblock_roles_permission){
 		}else{
 			return false;
 		}
+	}
+}
+
+add_filter('ctblock_pages_permission', 'ctblock_pages_wise_permission_callback');
+function ctblock_pages_wise_permission_callback($pages_permission){
+	$jhdoption = get_option( 'jh_disabled_option' );
+	$permission_pages = class_exists('CTBLOCK_PRO_INIT') && !empty($jhdoption['disable-pages']) ? $jhdoption['disable-pages'] : ['all'];
+	
+	if( !empty($permission_pages) && in_array('all', $permission_pages)){
+		return true;
+	}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+
+add_filter('ctblock_post_type_permission', 'ctblock_post_type_permission_callback');
+function ctblock_post_type_permission_callback($post_type_permission){
+
+	// Get the current page ID
+	$current_page_id = get_the_ID();
+	// Get the post type of the current page
+    $post_type = get_post_type($current_page_id);
+
+	$jhdoption = get_option( 'jh_disabled_option' );
+	$permission_post_type = class_exists('CTBLOCK_PRO_INIT') && !empty($jhdoption['disable-post-type']) ? $jhdoption['disable-post-type'] : ['all'];
+	
+	if( !empty($permission_post_type) && in_array('all', $permission_post_type)){
+		return true;
+	}elseif( !empty($permission_post_type) && in_array($post_type, $permission_post_type) ){
+		return true;
+	}else{
+		return false;
 	}
 }
 
