@@ -65,7 +65,7 @@ function disabled_source_front_page_script(){
 		wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
 	}else{
 		$jh_user = wp_get_current_user();
-        if( !empty($jh_user->roles[0]) && "customer"==$jh_user->roles[0]){
+        if( apply_filters( 'ctblock_roles_permission', $roles_permission = '')){
 
 			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
 				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
@@ -232,4 +232,19 @@ function jh_disable_notifcation_style(){
 		</style>';
 	}
 }
+
+add_filter('ctblock_roles_permission', 'ctblock_roles_wise_permission_callback');
+function ctblock_roles_wise_permission_callback($ctblock_roles_permission){
+	$jhdoption = get_option( 'jh_disabled_option' );
+	$permission_roles = class_exists('CTBLOCK_PRO_INIT') && !empty($jhdoption['disable-roles']) ? $jhdoption['disable-roles'] : ['customer'];
+	if (is_user_logged_in() ){
+		$jh_user = wp_get_current_user();
+        if( !empty($jh_user->roles[0]) && !empty($permission_roles) && in_array($jh_user->roles[0], $permission_roles)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+
 ?>
