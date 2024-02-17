@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, no right click, right click off, protect content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, CSS, HTML, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
 Tested up to: 6.4
-Stable tag: 1.3.4
+Stable tag: 1.3.5
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -110,6 +110,10 @@ No.
 6. Disable IP by Country Settings
 
 == Changelog ==
+
+= 1.3.5 =
+
+* Fixed: PHP deprecated issue
 
 = 1.3.4 =
 
