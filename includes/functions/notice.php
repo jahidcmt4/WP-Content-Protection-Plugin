@@ -21,20 +21,21 @@ if(!function_exists('jh_review_notice')){
         $get_current_screen = get_current_screen();  
         if($get_current_screen->base == 'dashboard'){
             $current_user = wp_get_current_user();
+            $security_nonce = wp_create_nonce( 'jh_notice' );
         ?>
             <div class="notice notice-info jh_disable_review_notice"> 
                
                 <?php echo sprintf( 
-                        esc_html_e( ' <p>Hey %1$s 👋, You have been using <b>%2$s</b> for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a ★★★★★ review on the WordPress Forum?', 'disabled-source-disabled-right-click-and-content-protection' ),
+                        esc_html__( ' Hey %1$s 👋, You have been using %2$s for quite a while. If you feel %2$s is helping your business to grow in any way, would you please help %2$s to grow by simply leaving a ★★★★★ review on the WordPress Forum?', 'disabled-source-disabled-right-click-and-content-protection' ),
                         esc_html($current_user->display_name),
-                        'Disabled Source, Disabled Right Click and Content Protection'
+                        '<b>Disabled Source, Disabled Right Click and Content Protection</b>'
                     ); ?> 
                 
                 <ul>
                     <li><a target="_blank" href="<?php echo esc_url('https://wordpress.org/support/plugin/disabled-source-disabled-right-click-and-content-protection/reviews/?filter=5/#new-post') ?>" class=""><span class="dashicons dashicons-external"></span><?php esc_html_e(' Ok, you deserve it!', 'disabled-source-disabled-right-click-and-content-protection' ) ?></a></li>
-                    <li><a href="#" class="already_done" data-status="already"><span class="dashicons dashicons-smiley"></span> <?php esc_html_e('I already did', 'disabled-source-disabled-right-click-and-content-protection') ?></a></li>
-                    <li><a href="#" class="later" data-status="later"><span class="dashicons dashicons-calendar-alt"></span> <?php esc_html_e('Maybe Later', 'disabled-source-disabled-right-click-and-content-protection') ?></a></li>
-                    <li><a href="#" class="never" data-status="never"><span class="dashicons dashicons-dismiss"></span><?php esc_html_e('Never show again', 'disabled-source-disabled-right-click-and-content-protection') ?> </a></li> 
+                    <li><a href="#" class="already_done" data-status="already" data-nonce="<?php echo esc_attr($security_nonce); ?>"><span class="dashicons dashicons-smiley"></span> <?php esc_html_e('I already did', 'disabled-source-disabled-right-click-and-content-protection') ?></a></li>
+                    <li><a href="#" class="later" data-status="later" data-nonce="<?php echo esc_attr($security_nonce); ?>"><span class="dashicons dashicons-calendar-alt"></span> <?php esc_html_e('Maybe Later', 'disabled-source-disabled-right-click-and-content-protection') ?></a></li>
+                    <li><a href="#" class="never" data-status="never" data-nonce="<?php echo esc_attr($security_nonce); ?>"><span class="dashicons dashicons-dismiss"></span><?php esc_html_e('Never show again', 'disabled-source-disabled-right-click-and-content-protection') ?> </a></li> 
                 </ul>
                 <button type="button" class="notice-dismiss review_notice_dismiss"><span class="screen-reader-text"><?php esc_html_e('Dismiss this notice.', 'disabled-source-disabled-right-click-and-content-protection') ?></span></button>
             </div>
@@ -46,9 +47,11 @@ if(!function_exists('jh_review_notice')){
                         event.preventDefault();
                         var $this = $(this);
                         var status = $this.attr('data-status'); 
+                        var security_nonce = $this.attr('data-nonce');
                         $this.closest('.jh_disable_review_notice').css('display', 'none')
                         data = {
                             action : 'jh_review_notice_callback',
+                            _nonce: security_nonce,
                             status : status,
                         };
 
@@ -88,6 +91,9 @@ if(!function_exists('jh_review_notice')){
 if(!function_exists('jh_review_notice_callback')){
 
     function jh_review_notice_callback(){
+        //Security Verify
+        check_ajax_referer('jh_notice', '_nonce');
+
         $status = $_POST['status'];
         if( $status == 'already'){ 
             update_option( 'jh_review_notice_status', '1' );
