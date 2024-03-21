@@ -65,25 +65,3 @@ function disablde_source_deshboard_settings( $links ) {
 
   return $links;
 }
-
-
-/**
- * Initialize the plugin tracker
- *
- * @return void
- */
-function appsero_init_tracker_disabled_source_disabled_right_click_and_content_protection() {
-
-    if ( ! class_exists( 'Appsero\Client' ) ) {
-      require_once __DIR__ . '/includes/inc/app/src/Client.php';
-    }
-
-    $client = new Appsero\Client( '6388b53c-64cb-4f9f-94f2-a36fe6afbb80', 'Disabled Source, Disabled Right Click and Content Protection', __FILE__ );
-
-    // Active insights
-    $client->insights()->init();
-
-}
-
-appsero_init_tracker_disabled_source_disabled_right_click_and_content_protection();
-

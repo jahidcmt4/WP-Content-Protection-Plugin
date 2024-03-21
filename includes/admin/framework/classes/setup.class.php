@@ -689,7 +689,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
     public static function add_custom_css() {
 
       if ( ! empty( self::$css ) ) {
-        echo '<style type="text/css">'. wp_strip_all_tags( self::$css ) .'</style>';
+        echo '<style type="text/css">'. wp_kses_post(wp_strip_all_tags( self::$css )) .'</style>';
       }
 
     }
