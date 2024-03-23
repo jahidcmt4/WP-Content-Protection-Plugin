@@ -17,7 +17,9 @@ if ( ! class_exists( 'CSF_Field_textarea' ) ) {
     public function render() {
 
       echo wp_kses_post($this->field_before());
-      echo wp_kses_post($this->shortcoder());
+      if($this->shortcoder()){
+        echo wp_kses_post($this->shortcoder());
+      }
       echo '<textarea name="'. esc_attr( $this->field_name() ) .'"'. wp_kses_post($this->field_attributes()) .'>'. esc_html($this->value) .'</textarea>';
       echo wp_kses_post($this->field_after());
 
