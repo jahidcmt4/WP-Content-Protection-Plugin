@@ -156,7 +156,7 @@ function jh_visitor_address_checker(){
 				?>
 				<div class="jh-blocked-msg-page" style="background: <?php echo !empty($jh_disabled_ip_address['ip_disable_background']) ? esc_attr($jh_disabled_ip_address['ip_disable_background']) : '#222'; ?>;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">
 				<span style="color: <?php echo !empty($jh_disabled_ip_address['ip_disable_color']) ? esc_attr($jh_disabled_ip_address['ip_disable_color']) : 'red'; ?>;font-size: 30px;padding: 0 20px;">
-				<?php echo !empty( $jh_disabled_ip_address['disabled-ip-notify-text'] ) ? $jh_disabled_ip_address['disabled-ip-notify-text'] : 'Your IP is blocked !'; ?>
+				<?php echo !empty( $jh_disabled_ip_address['disabled-ip-notify-text'] ) ? esc_html($jh_disabled_ip_address['disabled-ip-notify-text']) : 'Your IP is blocked !'; ?>
 				<span> 
 				</div>
 				<?php
@@ -177,7 +177,7 @@ function jh_visitor_address_checker(){
 				?>
 				<div class="jh-blocked-msg-page" style="background: <?php echo !empty($jh_disabled_ip_address['country_disable_background']) ? esc_attr($jh_disabled_ip_address['country_disable_background']) : '#222'; ?>;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">
 				<span style="color: <?php echo !empty($jh_disabled_ip_address['country_disable_color']) ? esc_attr($jh_disabled_ip_address['country_disable_color']) : 'red'; ?>;font-size: 30px;padding: 0 20px;">
-				<?php echo !empty( $jh_disabled_ip_address['disabled-country-notify-text'] ) ? $jh_disabled_ip_address['disabled-country-notify-text'] : 'Your Country are blocked !'; ?>
+				<?php echo !empty( $jh_disabled_ip_address['disabled-country-notify-text'] ) ? esc_html($jh_disabled_ip_address['disabled-country-notify-text']) : 'Your Country are blocked !'; ?>
 				<span> 
 				</div>
 				<?php
@@ -195,7 +195,7 @@ function jh_visitor_address_checker(){
 	    	
 			echo '<div class="jh-blocked-msg-page" style="background: #222;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">';
 			echo '<span style="color: red;font-size: 30px;padding: 0 20px;">';
-			echo !empty( $jh_disabled_ip_address['maintenance-text'] ) ? $jh_disabled_ip_address['maintenance-text'] : 'Our Website is under Maintenance, We will get back to you Soon.';
+			echo !empty( $jh_disabled_ip_address['maintenance-text'] ) ? esc_html($jh_disabled_ip_address['maintenance-text']) : 'Our Website is under Maintenance, We will get back to you Soon.';
 			echo '<span>';
 			echo '</div>';
 			exit();

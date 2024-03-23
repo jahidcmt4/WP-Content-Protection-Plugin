@@ -689,7 +689,7 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
     public static function add_custom_css() {
 
       if ( ! empty( self::$css ) ) {
-        echo '<style type="text/css">'. wp_strip_all_tags( self::$css ) .'</style>';
+        echo '<style type="text/css">'. wp_kses_post(wp_strip_all_tags( self::$css )) .'</style>';
       }
 
     }
@@ -749,14 +749,14 @@ if ( ! class_exists( 'CSF_Setup' ) ) {
       }
 
       // These attributes has been sanitized above.
-      echo '<div class="csf-field csf-field-'. $field_type . $is_pseudo . $class . $visible .'"'. $depend .'>';
+      echo '<div class="csf-field csf-field-'. esc_attr($field_type) . esc_attr($is_pseudo) . esc_attr($class) . wp_kses_post($visible) .'"'. wp_kses_post($depend) .'>';
 
       if ( ! empty( $field_type ) ) {
 
         if ( ! empty( $field['title'] ) ) {
           echo '<div class="csf-title">';
-          echo '<h4>'. $field['title'] .'</h4>';
-          echo ( ! empty( $field['subtitle'] ) ) ? '<div class="csf-subtitle-text">'. $field['subtitle'] .'</div>' : '';
+          echo '<h4>'. esc_html($field['title']) .'</h4>';
+          echo ( ! empty( $field['subtitle'] ) ) ? '<div class="csf-subtitle-text">'. esc_html($field['subtitle']) .'</div>' : '';
           echo '</div>';
         }
 

@@ -18,9 +18,9 @@ if ( ! class_exists( 'CSF_Field_color' ) ) {
 
       $default_attr = ( ! empty( $this->field['default'] ) ) ? ' data-default-color="'. esc_attr( $this->field['default'] ) .'"' : '';
 
-      echo $this->field_before();
-      echo '<input type="text" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'" class="csf-color"'. $default_attr . $this->field_attributes() .'/>';
-      echo $this->field_after();
+      echo wp_kses_post($this->field_before());
+      echo '<input type="text" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'" class="csf-color"'. wp_kses_post($default_attr) . wp_kses_post($this->field_attributes()) .'/>';
+      echo wp_kses_post($this->field_after());
 
     }
 
