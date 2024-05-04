@@ -16,10 +16,12 @@ if ( ! class_exists( 'CSF_Field_textarea' ) ) {
 
     public function render() {
 
-      echo $this->field_before();
-      echo $this->shortcoder();
-      echo '<textarea name="'. esc_attr( $this->field_name() ) .'"'. $this->field_attributes() .'>'. $this->value .'</textarea>';
-      echo $this->field_after();
+      echo wp_kses_post($this->field_before());
+      if($this->shortcoder()){
+        echo wp_kses_post($this->shortcoder());
+      }
+      echo '<textarea name="'. esc_attr( $this->field_name() ) .'"'. wp_kses_post($this->field_attributes()) .'>'. esc_html($this->value) .'</textarea>';
+      echo wp_kses_post($this->field_after());
 
     }
 
@@ -35,7 +37,7 @@ if ( ! class_exists( 'CSF_Field_textarea' ) ) {
 
             $button_title = CSF::$shortcode_instances[$instance_key]['button_title'];
 
-            echo '<a href="#" class="button button-primary csf-shortcode-button" data-modal-id="'. esc_attr( $instance_key ) .'">'. $button_title .'</a>';
+            echo '<a href="#" class="button button-primary csf-shortcode-button" data-modal-id="'. esc_attr( $instance_key ) .'">'. esc_html($button_title) .'</a>';
 
           }
 

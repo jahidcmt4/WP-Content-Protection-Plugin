@@ -383,5 +383,23 @@ if( class_exists( 'CSF' ) ) {
     )
   ) );
 
+  // Disable By pages
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Block By Pages', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disable-pages',
+        'type'  => 'select',
+        'title' => __( 'Block By Pages', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options'     => 'pages',
+        'chosen'      => true,
+        'multiple'    => true,
+        'placeholder' => "If left empty, it will affect all pages.",
+        'query_args'  => array(
+          'posts_per_page' => -1,
+        ),
+      ),
+    )
+  ) );
 
 }

@@ -2,8 +2,8 @@
 Contributors: jahidcse
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, no right click, right click off, protect content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, CSS, HTML, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
-Tested up to: 6.4
-Stable tag: 1.3.3
+Tested up to: 6.5
+Stable tag: 1.3.9
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -43,6 +43,7 @@ The plugin is called copy content protection. It is very easy to use and install
 * Website Maintenance
 * Website Maintenance Custom Design
 * Disable Print Preview Page
+* Disable by Page id
 * Disable by Role wise (upcoming)
 
 = 🎉 Disable Comments =
@@ -57,20 +58,12 @@ The plugin is called copy content protection. It is very easy to use and install
 
 * This feature enables users to block unwanted traffic from accessing your website frontend and backend by Country. It helps to reduce spam and unwanted sign-ups quickly by preventing unwanted visitors from browsing an entire website.
 
-
-<strong>Privacy Policy : </strong>
-Disabled Source, Disabled Right Click and Content Protection uses [Appsero](https://appsero.com) SDK to collect some telemetry data upon user's confirmation. This helps us to troubleshoot problems faster & make product improvements.
-
-Appsero SDK does not gather any data by default. The SDK only starts gathering basic telemetry data when a user allows it via the admin notice. We collect the data to ensure a great user experience for all our users. 
-
-Integrating Appsero SDK DOES NOT IMMEDIATELY start gathering data, without confirmation from users in any case.
-
-
 == Installation ==
 
 1. Install Disabled Source, Disabled Right Click and Content Protection by uploading the `disabled-source-disabled-right-click-and-content-protection` directory to the `/wp-content/plugins/` directory.
 2. Activate Disabled Source, Disabled Right Click and Content Protection through the `Plugins` menu in WordPress.
-3. Activate Disabled Source, Disabled Right Click and Content Protection plugin and check your website on private/Incognito window.
+3. You can change this option any time you want by going to the `Disabled Settings` Admin Menu.
+4. Activate Disabled Source, Disabled Right Click and Content Protection plugin and check your website on private/Incognito window.
 
 
 
@@ -110,6 +103,31 @@ No.
 6. Disable IP by Country Settings
 
 == Changelog ==
+
+= 1.3.9 =
+
+* Added: Block By Page id
+
+= 1.3.8 =
+
+* Removed: Auto Redirect to the Setting Page
+
+= 1.3.7 =
+
+* Added: Compatibility with WordPress 6.5
+
+= 1.3.6 =
+
+* Updated: Security and Minor Bugs
+* Fixed: Nonce Validation and escaping issues
+
+= 1.3.5 =
+
+* Fixed: PHP deprecated issue
+
+= 1.3.4 =
+
+* Added: Compatibility with WooCommerce 8.5.2
 
 = 1.3.3 =
 

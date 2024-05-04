@@ -42,32 +42,7 @@ function disabled_source_front_page_script(){
 		if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
 			wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
 		}
-		wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
-		$jh_disabled_options_data_pass = array(
-		    'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
-		    'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
-		    'disabled_f12' => !empty( $jhdoption['disabled-f12'] ) ? $jhdoption['disabled-f12'] : '',
-		    'disabled_ctst_i' => !empty( $jhdoption['disabled-ct-st-i'] ) ? $jhdoption['disabled-ct-st-i'] : '',
-		    'disabled_ctst_j' => !empty( $jhdoption['disabled-ct-st-j'] ) ? $jhdoption['disabled-ct-st-j'] : '',
-		    'disabled_ctst_c' => !empty( $jhdoption['disabled-ct-st-c'] ) ? $jhdoption['disabled-ct-st-c'] : '',
-		    'disabled_ct_s' => !empty( $jhdoption['disabled-ct-s'] ) ? $jhdoption['disabled-ct-s'] : '',
-		    'disabled_dragging_img' => !empty( $jhdoption['disabled-img-drag'] ) ? $jhdoption['disabled-img-drag'] : '',
-		    'disabled_notifi_status' => !empty( $jhdoption['disabled-notification-status'] ) ? $jhdoption['disabled-notification-status'] : '',
-		    'disabled_notifi_text' => !empty( $jhdoption['disabled-notify-text'] ) ? $jhdoption['disabled-notify-text'] : '',
-			'disabled_notifi_position' => !empty( $jhdoption['disabled-notification-position'] ) ? $jhdoption['disabled-notification-position'] : 'right center',
-			'disabled_ct_p' => !empty( $jhdoption['disabled-ct-p'] ) ? $jhdoption['disabled-ct-p'] : ''
-		);
-		wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
-	}else{
-		$jh_user = wp_get_current_user();
-        if( !empty($jh_user->roles[0]) && "customer"==$jh_user->roles[0]){
-
-			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
-			}
-			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
-				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
-			}
+		if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') ){
 			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
 			$jh_disabled_options_data_pass = array(
 				'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
@@ -84,7 +59,36 @@ function disabled_source_front_page_script(){
 				'disabled_ct_p' => !empty( $jhdoption['disabled-ct-p'] ) ? $jhdoption['disabled-ct-p'] : ''
 			);
 			wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
-			
+		}
+	}else{
+		$jh_user = wp_get_current_user();
+        if( !empty($jh_user->roles[0]) && "customer"==$jh_user->roles[0]){
+
+			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
+				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
+			}
+			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
+				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
+			}
+
+			if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') ){
+				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
+				$jh_disabled_options_data_pass = array(
+					'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
+					'disabled_ct_u' => !empty( $jhdoption['disabled-ct-u'] ) ? $jhdoption['disabled-ct-u'] : '',
+					'disabled_f12' => !empty( $jhdoption['disabled-f12'] ) ? $jhdoption['disabled-f12'] : '',
+					'disabled_ctst_i' => !empty( $jhdoption['disabled-ct-st-i'] ) ? $jhdoption['disabled-ct-st-i'] : '',
+					'disabled_ctst_j' => !empty( $jhdoption['disabled-ct-st-j'] ) ? $jhdoption['disabled-ct-st-j'] : '',
+					'disabled_ctst_c' => !empty( $jhdoption['disabled-ct-st-c'] ) ? $jhdoption['disabled-ct-st-c'] : '',
+					'disabled_ct_s' => !empty( $jhdoption['disabled-ct-s'] ) ? $jhdoption['disabled-ct-s'] : '',
+					'disabled_dragging_img' => !empty( $jhdoption['disabled-img-drag'] ) ? $jhdoption['disabled-img-drag'] : '',
+					'disabled_notifi_status' => !empty( $jhdoption['disabled-notification-status'] ) ? $jhdoption['disabled-notification-status'] : '',
+					'disabled_notifi_text' => !empty( $jhdoption['disabled-notify-text'] ) ? $jhdoption['disabled-notify-text'] : '',
+					'disabled_notifi_position' => !empty( $jhdoption['disabled-notification-position'] ) ? $jhdoption['disabled-notification-position'] : 'right center',
+					'disabled_ct_p' => !empty( $jhdoption['disabled-ct-p'] ) ? $jhdoption['disabled-ct-p'] : ''
+				);
+				wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
+			}
 		}
 	}
 }
@@ -156,7 +160,7 @@ function jh_visitor_address_checker(){
 				?>
 				<div class="jh-blocked-msg-page" style="background: <?php echo !empty($jh_disabled_ip_address['ip_disable_background']) ? esc_attr($jh_disabled_ip_address['ip_disable_background']) : '#222'; ?>;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">
 				<span style="color: <?php echo !empty($jh_disabled_ip_address['ip_disable_color']) ? esc_attr($jh_disabled_ip_address['ip_disable_color']) : 'red'; ?>;font-size: 30px;padding: 0 20px;">
-				<?php echo !empty( $jh_disabled_ip_address['disabled-ip-notify-text'] ) ? $jh_disabled_ip_address['disabled-ip-notify-text'] : 'Your IP is blocked !'; ?>
+				<?php echo !empty( $jh_disabled_ip_address['disabled-ip-notify-text'] ) ? esc_html($jh_disabled_ip_address['disabled-ip-notify-text']) : 'Your IP is blocked !'; ?>
 				<span> 
 				</div>
 				<?php
@@ -177,7 +181,7 @@ function jh_visitor_address_checker(){
 				?>
 				<div class="jh-blocked-msg-page" style="background: <?php echo !empty($jh_disabled_ip_address['country_disable_background']) ? esc_attr($jh_disabled_ip_address['country_disable_background']) : '#222'; ?>;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">
 				<span style="color: <?php echo !empty($jh_disabled_ip_address['country_disable_color']) ? esc_attr($jh_disabled_ip_address['country_disable_color']) : 'red'; ?>;font-size: 30px;padding: 0 20px;">
-				<?php echo !empty( $jh_disabled_ip_address['disabled-country-notify-text'] ) ? $jh_disabled_ip_address['disabled-country-notify-text'] : 'Your Country are blocked !'; ?>
+				<?php echo !empty( $jh_disabled_ip_address['disabled-country-notify-text'] ) ? esc_html($jh_disabled_ip_address['disabled-country-notify-text']) : 'Your Country are blocked !'; ?>
 				<span> 
 				</div>
 				<?php
@@ -195,7 +199,7 @@ function jh_visitor_address_checker(){
 	    	
 			echo '<div class="jh-blocked-msg-page" style="background: #222;position: fixed;left: 0;top: 0;width: 100%;height: 100vh;display: flex;align-items: center;justify-content: center;">';
 			echo '<span style="color: red;font-size: 30px;padding: 0 20px;">';
-			echo !empty( $jh_disabled_ip_address['maintenance-text'] ) ? $jh_disabled_ip_address['maintenance-text'] : 'Our Website is under Maintenance, We will get back to you Soon.';
+			echo !empty( $jh_disabled_ip_address['maintenance-text'] ) ? esc_html($jh_disabled_ip_address['maintenance-text']) : 'Our Website is under Maintenance, We will get back to you Soon.';
 			echo '<span>';
 			echo '</div>';
 			exit();
@@ -227,4 +231,20 @@ function jh_disable_notifcation_style(){
 		</style>';
 	}
 }
+
+// Permission by pages
+add_filter('jh_disable_pages_permission', 'jh_disable_pages_wise_permission_callback');
+function jh_disable_pages_wise_permission_callback($pages_permission){
+	$jhdoption = get_option( 'jh_disabled_option' );
+	$permission_pages = !empty($jhdoption['disable-pages']) ? $jhdoption['disable-pages'] : ['all'];
+	
+	if( !empty($permission_pages) && in_array('all', $permission_pages)){
+		return true;
+	}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
+		return true;
+	}else{
+		return false;
+	}
+}
+
 ?>

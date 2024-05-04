@@ -33,7 +33,7 @@ if ( ! class_exists( 'CSF_Welcome' ) ) {
     }
 
     public function add_about_menu() {
-      add_management_page( 'Codestar Framework', 'Codestar Framework', 'manage_options', 'csf-welcome', array( $this, 'add_page_welcome' ) );
+      // add_management_page( 'Codestar Framework', 'Codestar Framework', 'manage_options', 'csf-welcome', array( $this, 'add_page_welcome' ) );
     }
 
     public function add_page_welcome() {

@@ -18,11 +18,11 @@ if ( ! class_exists( 'CSF_Field_text' ) ) {
 
       $type = ( ! empty( $this->field['attributes']['type'] ) ) ? $this->field['attributes']['type'] : 'text';
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
-      echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'"'. $this->field_attributes() .' />';
+      echo '<input type="'. esc_attr( $type ) .'" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'"'. wp_kses_post($this->field_attributes()) .' />';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 
