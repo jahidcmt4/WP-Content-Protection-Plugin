@@ -36,13 +36,15 @@ function disabled_source_front_page_script(){
 
 	$jhdoption = get_option( 'jh_disabled_option' );
 	if (!is_user_logged_in() ){
-    	if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-			wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
-		}
-		if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
-			wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
-		}
 		if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') ){
+
+			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
+				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
+			}
+			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
+				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
+			}
+
 			wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
 			$jh_disabled_options_data_pass = array(
 				'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
@@ -63,15 +65,15 @@ function disabled_source_front_page_script(){
 	}else{
 		$jh_user = wp_get_current_user();
         if( !empty($jh_user->roles[0]) && "customer"==$jh_user->roles[0]){
-
-			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
-				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
-			}
-			if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
-				wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
-			}
-
 			if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') ){
+				
+				if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
+					wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
+				}
+				if( !empty($jhdoption['disabled-notification-status']) && $jhdoption['disabled-notification-status']=="1" ){
+					wp_enqueue_script( 'notify-js', JH_URL.'includes/assets/js/notify.min.js', array('jquery'), '1.1.3', true );
+				}
+				
 				wp_enqueue_script( 'disabled-source-and-content-protection-js', JH_URL.'includes/assets/js/protection.js', array('jquery'), '1.0.0', true );
 				$jh_disabled_options_data_pass = array(
 					'disabled_click' => !empty( $jhdoption['disabled-right-click'] ) ? $jhdoption['disabled-right-click'] : '',
