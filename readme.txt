@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, no right click, right click off, protect content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, CSS, HTML, disable comments, disable ip address, maintenance, country blocked
 Requires at least: 4.7
 Tested up to: 6.5
-Stable tag: 1.3.9
+Stable tag: 1.4.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -44,7 +44,7 @@ The plugin is called copy content protection. It is very easy to use and install
 * Website Maintenance Custom Design
 * Disable Print Preview Page
 * Disable by Page id
-* Disable by Role wise (upcoming)
+* Disable by Role wise
 
 = 🎉 Disable Comments =
 
@@ -103,6 +103,10 @@ No.
 6. Disable IP by Country Settings
 
 == Changelog ==
+
+= 1.4.0 =
+
+* Added: Block By rolewise
 
 = 1.3.9 =
 

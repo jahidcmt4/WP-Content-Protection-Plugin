@@ -3,6 +3,19 @@ defined( 'ABSPATH' ) || exit;
 
 $badge_up     = '<div class="disable-up-badge"><span class="disable-upcoming">' .__("Upcoming", "disabled-source-disabled-right-click-and-content-protection"). '</span></div>';
 
+if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
+	function disable_get_all_author_roles() {
+		$roles = wp_roles()->get_names();
+    $all_roles = [];
+    foreach ($roles as $role => $name) {
+      if("administrator"!=$role){
+        $all_roles[$role] = $name;
+      }
+    }
+    return $all_roles;
+	}
+}
+
 if( class_exists( 'CSF' ) ) {
 
   $prefix = 'jh_disabled_option';
@@ -398,6 +411,20 @@ if( class_exists( 'CSF' ) ) {
         'query_args'  => array(
           'posts_per_page' => -1,
         ),
+      ),
+    )
+  ) );
+
+   // Disable By roles
+   CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disable-roles',
+        'type'  => 'checkbox',
+        'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options' => disable_get_all_author_roles(),
+        'default' => 'customer'
       ),
     )
   ) );
