@@ -101,6 +101,8 @@ No.
 4. Maintenance Settings
 5. Disable by IP Address Settings
 6. Disable IP by Country Settings
+7. Disable by Page id
+8. Disable by role wise
 
 == Changelog ==
 
