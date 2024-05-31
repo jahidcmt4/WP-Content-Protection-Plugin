@@ -1,9 +1,9 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
-Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, no right click, right click off, protect content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, CSS, HTML, disable comments, disable ip address, maintenance, country blocked
+Tags: content protection, no right click, right click off, image protection, disable IP  address and country
 Requires at least: 4.7
-Tested up to: 6.4
-Stable tag: 1.3.6
+Tested up to: 6.5
+Stable tag: 1.4.0
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -43,7 +43,8 @@ The plugin is called copy content protection. It is very easy to use and install
 * Website Maintenance
 * Website Maintenance Custom Design
 * Disable Print Preview Page
-* Disable by Role wise (upcoming)
+* Disable by Page id
+* Disable by Role wise
 
 = 🎉 Disable Comments =
 
@@ -61,7 +62,8 @@ The plugin is called copy content protection. It is very easy to use and install
 
 1. Install Disabled Source, Disabled Right Click and Content Protection by uploading the `disabled-source-disabled-right-click-and-content-protection` directory to the `/wp-content/plugins/` directory.
 2. Activate Disabled Source, Disabled Right Click and Content Protection through the `Plugins` menu in WordPress.
-3. Activate Disabled Source, Disabled Right Click and Content Protection plugin and check your website on private/Incognito window.
+3. You can change this option any time you want by going to the `Disabled Settings` Admin Menu.
+4. Activate Disabled Source, Disabled Right Click and Content Protection plugin and check your website on private/Incognito window.
 
 
 
@@ -99,12 +101,31 @@ No.
 4. Maintenance Settings
 5. Disable by IP Address Settings
 6. Disable IP by Country Settings
+7. Disable by Page id
+8. Disable by role wise
 
 == Changelog ==
+
+= 1.4.0 =
+
+* Added: Block By role wise (Ex: Author, Subscriber, Editor, etc)
+
+= 1.3.9 =
+
+* Added: Block By Page id
+
+= 1.3.8 =
+
+* Removed: Auto Redirect to the Setting Page
+
+= 1.3.7 =
+
+* Added: Compatibility with WordPress 6.5
 
 = 1.3.6 =
 
 * Updated: Security and Minor Bugs
+* Fixed: Nonce Validation and escaping issues
 
 = 1.3.5 =
 
