@@ -1,6 +1,6 @@
 === Disabled Source, Disabled Right Click and Content Protection ===
 Contributors: jahidcse
-Tags: content protection, images protection, content, right click disabled, F12 disabled, Copy content, no right click, right click off, protect content, disabled, Ctrl + Shift + I, Ctrl + Shift + J, Ctrl + Shift + C, Ctrl + U, wp developers, SEO, CSS, HTML, disable comments, disable ip address, maintenance, country blocked
+Tags: content protection, no right click, right click off, image protection, disable IP  address and country
 Requires at least: 4.7
 Tested up to: 6.5
 Stable tag: 1.4.0
@@ -106,7 +106,7 @@ No.
 
 = 1.4.0 =
 
-* Added: Block By rolewise
+* Added: Block By role wise (Ex: Author, Subscriber, Editor, etc)
 
 = 1.3.9 =
 

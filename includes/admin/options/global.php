@@ -423,7 +423,7 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disable-roles',
         'type'  => 'checkbox',
         'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
-        'options' => disable_get_all_author_roles(),
+        'options' => function_exists( 'disable_get_all_author_roles' ) ? disable_get_all_author_roles() : '',
         'default' => 'customer'
       ),
     )
