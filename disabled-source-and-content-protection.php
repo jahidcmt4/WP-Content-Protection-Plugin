@@ -3,9 +3,9 @@
  * Plugin Name:       Disabled Source, Disabled Right Click and Content Protection
  * Plugin URI:        https://wordpress.org/plugins/disabled-source-disabled-right-click-and-content-protection/
  * Description:       Disabled Source(Ctrl+U), Disabled Right click, Disable F12 functional key, and Disable save the page(Ctrl+S) and Content Protection of your WordPress Website.
- * Version:           1.4.0
+ * Version:           1.4.4
  * Requires at least: 4.7
- * Tested up to: 6.5
+ * Tested up to: 6.6
  * Requires PHP:      5.3
  * Text Domain: disabled-source-disabled-right-click-and-content-protection
  * Author:            jahidcse

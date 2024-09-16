@@ -254,12 +254,18 @@ function jh_disable_pages_wise_permission_callback($pages_permission){
 	$jhdoption = get_option( 'jh_disabled_option' );
 	$permission_pages = !empty($jhdoption['disable-pages']) ? $jhdoption['disable-pages'] : ['all'];
 	
-	if( !empty($permission_pages) && in_array('all', $permission_pages)){
-		return true;
-	}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
-		return true;
+	if (is_front_page()) {
+		if( !empty($permission_pages) && in_array('jh_disable_front', $permission_pages)){
+			return true;
+		}
 	}else{
-		return false;
+		if( !empty($permission_pages) && in_array('all', $permission_pages)){
+			return true;
+		}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
+			return true;
+		}else{
+			return false;
+		}
 	}
 }
 
