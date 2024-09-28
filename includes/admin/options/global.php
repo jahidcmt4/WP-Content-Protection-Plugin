@@ -16,12 +16,28 @@ if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
 	}
 }
 
+if ( ! function_exists( 'disable_get_all_pages' ) ) {
+	function disable_get_all_pages() {
+		// Get all pages
+		$pages = get_pages();
+		
+		$all_pages = ['jh_disable_front' => 'Front Page -- Home Page'];
+
+		foreach ( $pages as $page ) {
+			$all_pages[$page->ID] = $page->post_title;
+		}
+		return $all_pages;
+	}
+}
+
+
+
 if( class_exists( 'CSF' ) ) {
 
   $prefix = 'jh_disabled_option';
 
   CSF::createOptions( $prefix, array(
-    'framework_title'         =>   __( 'Disabled Settings <small>by <a style="color: #bfbfbf;text-decoration:none;" href="https://profiles.wordpress.org/jahidcse/" target="_blank">Jahid Hasan</a></small>', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'framework_title'         =>   __( 'Disabled Settings <a style="text-decoration:none; background: #2271b1; padding: 5px 10px; display: inline-block;border-radius: 8px;color: #fff;font-size: 16px;" href="https://buymeacoffee.com/jahidcmt4" target="_blank"><i class="fa fa-coffee" aria-hidden="true"></i> Buy Me a Coffee</a>', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_title'              =>   __( 'Disabled Settings', 'disabled-source-disabled-right-click-and-content-protection' ),
     'menu_slug'               =>   'disabled-source-disabled-right-click-and-content-protection',
     'menu_icon'               =>   'dashicons-lock',
@@ -359,6 +375,7 @@ if( class_exists( 'CSF' ) ) {
           'SD' => __( "Sudan", 'disabled-source-disabled-right-click-and-content-protection' ),
           'SZ' => __( "Swaziland", 'disabled-source-disabled-right-click-and-content-protection' ),
           'SE' => __( "Sweden", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'SC' => __( "Seychelles", 'disabled-source-disabled-right-click-and-content-protection' ),
           'CH' => __( "Switzerland", 'disabled-source-disabled-right-click-and-content-protection' ),
           'UG' => __( "Uganda", 'disabled-source-disabled-right-click-and-content-protection' ),
           'TH' => __( "Thailand", 'disabled-source-disabled-right-click-and-content-protection' ),
@@ -370,6 +387,7 @@ if( class_exists( 'CSF' ) ) {
           'GB' => __( "United Kingdom", 'disabled-source-disabled-right-click-and-content-protection' ),
           'US' => __( "United States of America", 'disabled-source-disabled-right-click-and-content-protection' ),
           'UY' => __( "Uruguay", 'disabled-source-disabled-right-click-and-content-protection' ),
+          'VN' => __( "Viet Nam", 'disabled-source-disabled-right-click-and-content-protection' ),
           'YE' => __( "Yemen", 'disabled-source-disabled-right-click-and-content-protection' ),
           'ZM' => __( "Zambia", 'disabled-source-disabled-right-click-and-content-protection' ),
           'ZW' => __( "Zimbabwe", 'disabled-source-disabled-right-click-and-content-protection' ),
@@ -404,13 +422,10 @@ if( class_exists( 'CSF' ) ) {
         'id'    => 'disable-pages',
         'type'  => 'select',
         'title' => __( 'Block By Pages', 'disabled-source-disabled-right-click-and-content-protection' ),
-        'options'     => 'pages',
+        'options'     => function_exists( 'disable_get_all_pages' ) ? disable_get_all_pages() : '',
         'chosen'      => true,
         'multiple'    => true,
         'placeholder' => "If left empty, it will affect all pages.",
-        'query_args'  => array(
-          'posts_per_page' => -1,
-        ),
       ),
     )
   ) );

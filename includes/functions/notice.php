@@ -19,7 +19,10 @@ if(!function_exists('jh_review_notice')){
     
      function jh_review_notice(){ 
         $get_current_screen = get_current_screen();  
-        if($get_current_screen->base == 'dashboard'){
+        $current_user = wp_get_current_user();
+        $current_user_role = ! empty( $current_user->roles[0] ) ? $current_user->roles[0] : '';
+
+        if( !empty($current_user_role) && 'administrator'==$current_user_role && $get_current_screen->base == 'dashboard'){
             $current_user = wp_get_current_user();
             $security_nonce = wp_create_nonce( 'jh_notice' );
         ?>
