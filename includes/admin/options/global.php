@@ -16,6 +16,7 @@ if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
 	}
 }
 
+// Get all Pages
 if ( ! function_exists( 'disable_get_all_pages' ) ) {
 	function disable_get_all_pages() {
 		// Get all pages
@@ -27,6 +28,14 @@ if ( ! function_exists( 'disable_get_all_pages' ) ) {
 			$all_pages[$page->ID] = $page->post_title;
 		}
 		return $all_pages;
+	}
+}
+
+// Post Type
+if ( ! function_exists( 'disable_get_all_post_type' ) ) {
+	function disable_get_all_post_type() {
+    $all_post_types =  get_option('jh_disable_post_types');
+    return $all_post_types;
 	}
 }
 
@@ -440,6 +449,22 @@ if( class_exists( 'CSF' ) ) {
         'title' => __( 'Disable By Roles', 'disabled-source-disabled-right-click-and-content-protection' ),
         'options' => function_exists( 'disable_get_all_author_roles' ) ? disable_get_all_author_roles() : '',
         'default' => 'customer'
+      ),
+    )
+  ) );
+
+  // Disable By Post Type
+  CSF::createSection( $prefix, array(
+    'title'  => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'fields' => array(
+      array(
+        'id'    => 'disable-post-type',
+        'type'  => 'select',
+        'title' => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
+        'options' => function_exists( 'disable_get_all_post_type' ) ? disable_get_all_post_type() : '',
+        'chosen'      => true,
+        'multiple'    => true,
+        'placeholder' => "If left empty, it will affect all post type.",
       ),
     )
   ) );
