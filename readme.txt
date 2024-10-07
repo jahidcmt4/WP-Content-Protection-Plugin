@@ -3,7 +3,7 @@ Contributors: jahidcse
 Tags: content protection, no right click, right click off, image protection, disable IP  address and country
 Requires at least: 4.7
 Tested up to: 6.6
-Stable tag: 1.4.6
+Stable tag: 1.4.7
 Requires PHP: 5.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -110,9 +110,13 @@ No.
 
 == Changelog ==
 
-= 1.4.6 =
+= 1.4.7 =
 
 * Added: Block by post type
+
+= 1.4.6 =
+
+* Fixed: Block by Roles
 
 = 1.4.5 =
 

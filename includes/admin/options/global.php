@@ -16,7 +16,6 @@ if ( ! function_exists( 'disable_get_all_author_roles' ) ) {
 	}
 }
 
-// Get all Pages
 if ( ! function_exists( 'disable_get_all_pages' ) ) {
 	function disable_get_all_pages() {
 		// Get all pages
@@ -38,8 +37,6 @@ if ( ! function_exists( 'disable_get_all_post_type' ) ) {
     return $all_post_types;
 	}
 }
-
-
 
 if( class_exists( 'CSF' ) ) {
 
@@ -453,8 +450,8 @@ if( class_exists( 'CSF' ) ) {
     )
   ) );
 
-  // Disable By Post Type
-  CSF::createSection( $prefix, array(
+   // Disable By Post Type
+   CSF::createSection( $prefix, array(
     'title'  => __( 'Disable By Post Type', 'disabled-source-disabled-right-click-and-content-protection' ),
     'fields' => array(
       array(

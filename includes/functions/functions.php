@@ -33,10 +33,11 @@ function disabled_source_admin_page_script(){
 
 add_action('wp_enqueue_scripts', 'disabled_source_front_page_script', 100);
 function disabled_source_front_page_script(){
-	
+
 	$jhdoption = get_option( 'jh_disabled_option' );
 	if (!is_user_logged_in() ){
-		if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') || apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
+		
+		if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') && apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
 
 			if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
 				wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
@@ -63,8 +64,9 @@ function disabled_source_front_page_script(){
 			wp_localize_script( 'disabled-source-and-content-protection-js', 'jh_disabled_options_data', $jh_disabled_options_data_pass );
 		}
 	}else{
+
 		if( apply_filters( 'jh_disable_roles_permission', $roles_permission = '')){
-			if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') || apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
+			if( apply_filters( 'jh_disable_pages_permission', $pages_permission = '') && apply_filters( 'jh_disable_post_type_permission', $post_type_permission = '') ){
 				
 				if( !empty($jhdoption['disabled-content-select']) && $jhdoption['disabled-content-select']=="1" ){
 					wp_enqueue_style( 'disabled-source-and-content-protection-css', JH_URL.'includes/assets/css/style.css', false, '1.0.0');
@@ -237,7 +239,8 @@ function jh_disable_notifcation_style(){
 add_filter('jh_disable_roles_permission', 'jh_disable_roles_wise_permission_callback');
 function jh_disable_roles_wise_permission_callback($roles_permission){
 	$jhdoption = get_option( 'jh_disabled_option' );
-	$permission_roles = !empty($jhdoption['disable-roles']) ? $jhdoption['disable-roles'] : ['customer'];
+	$permission_roles = !empty($jhdoption['disable-roles']) && 'customer'!=$jhdoption['disable-roles'] ? $jhdoption['disable-roles'] : ['customer'];
+
 	if( is_user_logged_in() ){
 		$jh_user = wp_get_current_user();
         if( !empty($jh_user->roles[0]) && !empty($permission_roles) && in_array($jh_user->roles[0], $permission_roles)){
@@ -253,21 +256,9 @@ add_filter('jh_disable_pages_permission', 'jh_disable_pages_wise_permission_call
 function jh_disable_pages_wise_permission_callback($pages_permission){
 	$jhdoption = get_option( 'jh_disabled_option' );
 	$permission_pages = !empty($jhdoption['disable-pages']) ? $jhdoption['disable-pages'] : ['all'];
-	
-	if ( $permission_pages === ['all'] ) {
-		if( !empty($permission_pages) && in_array('all', $permission_pages)){
-			return true;
-		}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
-			return true;
-		}else{
-			return false;
-		}
-	}else{
-		if (is_front_page()) {
-			if( !empty($permission_pages) && in_array('jh_disable_front', $permission_pages)){
-				return true;
-			}
-		}else{
+
+	if ( !is_single() ){
+		if ( $permission_pages === ['all'] ) {
 			if( !empty($permission_pages) && in_array('all', $permission_pages)){
 				return true;
 			}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
@@ -275,17 +266,34 @@ function jh_disable_pages_wise_permission_callback($pages_permission){
 			}else{
 				return false;
 			}
+		}else{
+			if (is_front_page()) {
+				if( !empty($permission_pages) && in_array('jh_disable_front', $permission_pages)){
+					return true;
+				}
+			}else{
+				if( !empty($permission_pages) && in_array('all', $permission_pages)){
+					return true;
+				}elseif( !empty($permission_pages) && in_array(get_the_ID(), $permission_pages) ){
+					return true;
+				}else{
+					return false;
+				}
+			}
 		}
+	}else{
+		return true;
 	}
 }
 
 // Permission by post type
 add_filter('jh_disable_post_type_permission', 'jh_disable_post_type_permission_callback');
-function jh_disable_post_type_permission_callback($pages_permission){
+function jh_disable_post_type_permission_callback($post_type_permission){
 	$jhdoption = get_option( 'jh_disabled_option' );
 	$permission_post_types = !empty($jhdoption['disable-post-type']) ? $jhdoption['disable-post-type'] : '';
 
 	if ( is_single() ){
+
 		if(!empty($permission_post_types)){
 			if( in_array(get_post_type(), $permission_post_types)){
 				return true;
@@ -296,9 +304,12 @@ function jh_disable_post_type_permission_callback($pages_permission){
 			return true;
 		}
 		
+	}else{
+		return true;
 	}
 }
 
+// Public Post types
 add_action( 'admin_init', 'jh_disable_check_frontend_post_types' );
 function jh_disable_check_frontend_post_types() {
   $post_types = get_post_types( 
