@@ -159,6 +159,7 @@ No.
 = 1.8.1 =
 
 * Fixed: Notification Icon Position Issue
+* Fixed: Backend Button height Issue
 
 = 1.8.0 =
 
