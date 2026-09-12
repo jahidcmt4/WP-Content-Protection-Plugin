@@ -392,4 +392,218 @@ if ( ! function_exists( 'disable_get_all_post_type' ) ) {
 	}
 }
 
-?>
+if ( ! function_exists( 'magic_login_callback' ) ) {
+	function magic_login_callback() {
+		$users = get_users( [
+			'orderby' => 'display_name',
+			'order'   => 'ASC',
+			'fields'  => [ 'ID', 'display_name', 'user_login' ],
+		] );
+
+		$is_pro = class_exists( 'CTBlock_Magic_Login' );
+		$links  = $is_pro ? CTBlock_Magic_Login::get_active_links() : [];
+		$nonce  = wp_create_nonce( 'jh_magic_login_nonce' );
+		?>
+		<div class="jh-magic-wrap <?php echo ! $is_pro ? 'jh-magic-wrap-disabled' : ''; ?>">
+
+			<!-- Header -->
+			<div class="jh-magic-header">
+				<div class="jh-magic-header-icon">
+					<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+						<path d="M15 4V2"></path>
+						<path d="M15 16v-2"></path>
+						<path d="M8 9h2"></path>
+						<path d="M20 9h2"></path>
+						<path d="M17.8 11.8 19 13"></path>
+						<path d="M15 9h0"></path>
+						<path d="M17.8 6.2 19 5"></path>
+						<path d="m3 21 9-9"></path>
+						<path d="M12.2 6.2 11 5"></path>
+					</svg>
+				</div>
+				<div class="jh-magic-header-text">
+					<h3><?php esc_html_e( 'Magic Login (Temporary Passwordless Access)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></h3>
+					<p><?php esc_html_e( 'Generate password-free, time-limited login links for any user role. Perfect for granting instant, temporary access to developers, clients, or support teams without sharing passwords.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
+				</div>
+			</div>
+
+			<!-- Form Card -->
+			<div class="jh-magic-card">
+				<h4 class="jh-magic-card-title">
+					<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+					<?php esc_html_e( 'Generate New Magic Login Link', 'disabled-source-disabled-right-click-and-content-protection' ); ?>
+				</h4>
+
+				<div id="jh-magic-login-form">
+					<input type="hidden" id="jh_magic_login_nonce" name="_nonce" value="<?php echo esc_attr( $nonce ); ?>">
+					<div class="jh-magic-grid">
+
+						<!-- User Select -->
+						<div class="jh-magic-form-group">
+							<label for="jh-ml-user"><?php esc_html_e( 'Select User', 'disabled-source-disabled-right-click-and-content-protection' ); ?> <span class="jh-required">*</span></label>
+							<select name="user_id" id="jh-ml-user" class="jh-magic-select" <?php disabled( ! $is_pro ); ?> required>
+								<option value=""><?php esc_html_e( '— Choose a user —', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<?php foreach ( $users as $u ) : 
+									$user_obj  = get_userdata( $u->ID );
+									$user_role = ( $user_obj && ! empty( $user_obj->roles ) ) ? ucfirst( reset( $user_obj->roles ) ) : 'User';
+								?>
+									<option value="<?php echo esc_attr( $u->ID ); ?>">
+										<?php echo esc_html( $u->display_name . ' (' . $u->user_login . ') — ' . $user_role ); ?>
+									</option>
+								<?php endforeach; ?>
+							</select>
+						</div>
+
+						<!-- Expiration -->
+						<div class="jh-magic-form-group">
+							<label for="jh-ml-duration"><?php esc_html_e( 'Link Expires In', 'disabled-source-disabled-right-click-and-content-protection' ); ?></label>
+							<select name="duration" id="jh-ml-duration" class="jh-magic-select" <?php disabled( ! $is_pro ); ?>>
+								<option value="1h"><?php esc_html_e( '1 Hour', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="24h" selected><?php esc_html_e( '24 Hours (1 Day)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="7d"><?php esc_html_e( '7 Days (1 Week)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="30d"><?php esc_html_e( '30 Days (1 Month)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+							</select>
+						</div>
+
+						<!-- Max Uses -->
+						<div class="jh-magic-form-group">
+							<label for="jh-ml-max-uses"><?php esc_html_e( 'Max Allowed Uses', 'disabled-source-disabled-right-click-and-content-protection' ); ?></label>
+							<select name="max_uses" id="jh-ml-max-uses" class="jh-magic-select" <?php disabled( ! $is_pro ); ?>>
+								<option value="1" selected><?php esc_html_e( '1 — Single use (Recommended)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="0"><?php esc_html_e( '0 — Unlimited uses until expired', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="5"><?php esc_html_e( '5 uses', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="10"><?php esc_html_e( '10 uses', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+							</select>
+						</div>
+
+						<!-- Label / Note -->
+						<div class="jh-magic-form-group">
+							<label for="jh-ml-label"><?php esc_html_e( 'Label / Purpose (Optional)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></label>
+							<input type="text" name="label" id="jh-ml-label" class="jh-magic-input" placeholder="<?php esc_attr_e( 'e.g. Developer Access, Client Preview', 'disabled-source-disabled-right-click-and-content-protection' ); ?>" <?php disabled( ! $is_pro ); ?>>
+						</div>
+
+						<!-- Redirect Target -->
+						<div class="jh-magic-form-group jh-magic-grid-full">
+							<label for="jh-ml-redirect"><?php esc_html_e( 'Redirect After Login', 'disabled-source-disabled-right-click-and-content-protection' ); ?></label>
+							<select name="redirect_to" id="jh-ml-redirect" class="jh-magic-select" <?php disabled( ! $is_pro ); ?>>
+								<option value="<?php echo esc_attr( admin_url() ); ?>"><?php esc_html_e( 'WP Admin Dashboard (Default)', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+								<option value="<?php echo esc_attr( home_url( '/' ) ); ?>"><?php esc_html_e( 'Website Homepage', 'disabled-source-disabled-right-click-and-content-protection' ); ?></option>
+							</select>
+						</div>
+
+					</div>
+
+					<?php if ( $is_pro ) : ?>
+					<div class="jh-magic-actions">
+						<button type="button" id="jh-magic-generate-btn" class="jh-magic-btn jh-magic-btn-primary">
+							<svg class="jh-btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 4V2"></path><path d="M15 16v-2"></path><path d="M8 9h2"></path><path d="M20 9h2"></path><path d="M17.8 11.8 19 13"></path><path d="M15 9h0"></path><path d="M17.8 6.2 19 5"></path><path d="m3 21 9-9"></path></svg>
+							<span class="jh-btn-text"><?php esc_html_e( 'Generate Magic Login Link', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+							<span class="jh-btn-spinner" style="display:none;"></span>
+						</button>
+					</div>
+					<?php endif; ?>
+
+				</div>
+
+				<!-- Success Result Box -->
+				<div id="jh-magic-result-card" class="jh-magic-result-card" style="display:none;">
+					<div class="jh-magic-result-header">
+						<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+						<span id="jh-magic-result-message"><?php esc_html_e( 'Magic login link created successfully!', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+					</div>
+					<div id="jh-magic-result-meta" class="jh-magic-result-meta"></div>
+					<div class="jh-magic-result-url-wrap">
+						<input type="text" id="jh-magic-result-url" class="jh-magic-result-input" readonly>
+						<button type="button" id="jh-magic-copy-main-btn" class="jh-magic-btn jh-magic-btn-copy">
+							<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+							<span class="jh-copy-text"><?php esc_html_e( 'Copy Link', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- Active Links Card -->
+			<div class="jh-magic-card" style="margin-top: 24px;">
+				<div class="jh-magic-card-header">
+					<h4 class="jh-magic-card-title">
+						<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+						<?php esc_html_e( 'Active Temporary Login Links', 'disabled-source-disabled-right-click-and-content-protection' ); ?>
+					</h4>
+					<span id="jh-magic-count-badge" class="jh-magic-badge"><?php echo count( $links ); ?></span>
+				</div>
+
+				<div id="jh-magic-table-wrap" class="jh-magic-table-wrap">
+					<?php if ( empty( $links ) ) : ?>
+						<div id="jh-magic-empty-state" class="jh-magic-empty-state">
+							<svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 14.14 14.14"></path></svg>
+							<p><?php esc_html_e( 'No active temporary login links.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></p>
+							<span><?php esc_html_e( 'Use the form above to generate a passwordless magic login link.', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+						</div>
+					<?php else : ?>
+						<table class="jh-magic-table" id="jh-magic-table">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th><?php esc_html_e( 'User / Label', 'disabled-source-disabled-right-click-and-content-protection' ); ?></th>
+									<th><?php esc_html_e( 'Expires In', 'disabled-source-disabled-right-click-and-content-protection' ); ?></th>
+									<th><?php esc_html_e( 'Usage', 'disabled-source-disabled-right-click-and-content-protection' ); ?></th>
+									<th><?php esc_html_e( 'Magic Link', 'disabled-source-disabled-right-click-and-content-protection' ); ?></th>
+									<th><?php esc_html_e( 'Actions', 'disabled-source-disabled-right-click-and-content-protection' ); ?></th>
+								</tr>
+							</thead>
+							<tbody id="jh-magic-tbody">
+								<?php foreach ( $links as $i => $link ) :
+									$link_user  = get_userdata( $link['user_id'] );
+									$login_url  = class_exists( 'CTBlock_Magic_Login' ) ? CTBlock_Magic_Login::get_login_url( $link['token'] ) : add_query_arg( 'jh_magic_login', rawurlencode( $link['token'] ), home_url( '/' ) );
+									$user_role  = ( $link_user && ! empty( $link_user->roles ) ) ? ucfirst( reset( $link_user->roles ) ) : 'User';
+									$uses_text  = ( isset( $link['max_uses'] ) && $link['max_uses'] > 0 ) ? ( $link['use_count'] . ' / ' . $link['max_uses'] ) : ( $link['use_count'] . ' / ∞' );
+									$is_soon    = ( $link['expires'] - time() ) < 3600;
+								?>
+									<tr id="jh-ml-row-<?php echo esc_attr( $link['token'] ); ?>" data-token="<?php echo esc_attr( $link['token'] ); ?>">
+										<td class="jh-ml-num"><?php echo absint( $i + 1 ); ?></td>
+										<td>
+											<strong class="jh-ml-user-name">
+												<?php echo $link_user ? esc_html( $link_user->display_name ) : esc_html__( '(Deleted User)', 'disabled-source-disabled-right-click-and-content-protection' ); ?>
+											</strong>
+											<div class="jh-ml-user-meta">
+												<span class="jh-ml-role-chip"><?php echo esc_html( $user_role ); ?></span>
+												<?php if ( ! empty( $link['label'] ) ) : ?>
+													<span class="jh-ml-label-text">"<?php echo esc_html( $link['label'] ); ?>"</span>
+												<?php endif; ?>
+											</div>
+										</td>
+										<td>
+											<span class="jh-ml-date <?php echo $is_soon ? 'jh-ml-soon' : ''; ?>">
+												<?php echo esc_html( date_i18n( 'M j, Y g:i a', $link['expires'] ) ); ?>
+											</span>
+											<?php if ( $is_soon ) : ?>
+												<span class="jh-ml-soon-tag"><?php esc_html_e( 'Expiring Soon', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+											<?php endif; ?>
+										</td>
+										<td>
+											<span class="jh-ml-usage"><?php echo esc_html( $uses_text ); ?></span>
+										</td>
+										<td>
+											<button type="button" class="jh-magic-btn jh-magic-btn-sm jh-magic-row-copy-btn" data-url="<?php echo esc_attr( $login_url ); ?>">
+												<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+												<span class="jh-copy-text"><?php esc_html_e( 'Copy Link', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+											</button>
+										</td>
+										<td>
+											<button type="button" class="jh-magic-btn jh-magic-btn-sm jh-magic-btn-danger jh-magic-revoke-btn" data-token="<?php echo esc_attr( $link['token'] ); ?>">
+												<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+												<span><?php esc_html_e( 'Revoke', 'disabled-source-disabled-right-click-and-content-protection' ); ?></span>
+											</button>
+										</td>
+									</tr>
+								<?php endforeach; ?>
+							</tbody>
+						</table>
+					<?php endif; ?>
+				</div>
+			</div>
+
+		</div>
+		<?php
+	}
+}

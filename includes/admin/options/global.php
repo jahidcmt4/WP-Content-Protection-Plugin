@@ -625,4 +625,16 @@ if( class_exists( 'CSF' ) ) {
     )
   ) );
 
+   // Magic Login
+  CSF::createSection( $prefix, array(
+    'title'  => esc_html__( 'Magic Login', 'disabled-source-disabled-right-click-and-content-protection' ),
+    'class' => 'jh-pro-feature',
+    'fields' => array(
+      array(
+        'type'    => 'callback',
+        'function' => 'magic_login_callback',
+      ),
+    )
+  ) );
+
 }

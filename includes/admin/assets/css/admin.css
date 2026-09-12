@@ -240,3 +240,322 @@
 .jh-pro-feature {
   padding-bottom: 70px !important;
 }
+
+/* ─────────────────────────────────────────────────────────────
+ * Magic Login / Temp Login Styles
+ * ─────────────────────────────────────────────────────────── */
+.jh-magic-wrap {
+	max-width: 900px;
+	margin: 10px 0 30px 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+}
+.jh-magic-header {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+	border: 1px solid #334155;
+	border-radius: 10px;
+	padding: 20px;
+	margin-bottom: 22px;
+	color: #fff;
+}
+.jh-magic-header-icon {
+	background: #3b82f6;
+	color: #fff;
+	width: 44px;
+	height: 44px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-shrink: 0;
+}
+.jh-magic-header-text h3 {
+	margin: 0 0 6px 0;
+	font-size: 17px;
+	font-weight: 600;
+	color: #fff;
+}
+.jh-magic-header-text p {
+	margin: 0;
+	font-size: 13.5px;
+	color: #94a3b8;
+	line-height: 1.5;
+}
+.jh-magic-card {
+	background: #1e293b;
+	border: 1px solid #334155;
+	border-radius: 10px;
+	padding: 24px;
+	box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+.jh-magic-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: 18px;
+}
+.jh-magic-card-title {
+	margin: 0 0 18px 0;
+	font-size: 15px;
+	font-weight: 600;
+	color: #f1f5f9;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+.jh-magic-card-header .jh-magic-card-title {
+	margin-bottom: 0;
+}
+.jh-magic-badge {
+	background: #3b82f6;
+	color: #fff;
+	font-size: 12px;
+	font-weight: 700;
+	padding: 2px 9px;
+	border-radius: 12px;
+}
+.jh-magic-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 16px;
+}
+.jh-magic-grid-full {
+	grid-column: 1 / -1;
+}
+.jh-magic-form-group {
+	display: flex;
+	flex-direction: column;
+}
+.jh-magic-form-group label {
+	font-size: 13px;
+	font-weight: 600;
+	color: #cbd5e1;
+	margin-bottom: 6px;
+}
+.jh-magic-form-group .jh-required {
+	color: #ef4444;
+}
+.jh-magic-select, .jh-magic-input {
+	background: #0f172a !important;
+	border: 1px solid #475569 !important;
+	border-radius: 6px !important;
+	color: #f8fafc !important;
+	padding-left: 12px !important;
+	padding-right: 12px !important;
+	font-size: 13.5px !important;
+	height: 40px !important;
+	width: 100% !important;
+	max-width: 100% !important;
+	box-sizing: border-box !important;
+	outline: none !important;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+.jh-magic-select:focus, .jh-magic-input:focus {
+	border-color: #3b82f6 !important;
+	box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3) !important;
+}
+.jh-magic-actions {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+.jh-magic-btn {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	font-size: 13px;
+	font-weight: 600;
+	padding: 9px 18px;
+	border-radius: 6px;
+	cursor: pointer;
+	border: none;
+	transition: all 0.2s;
+	text-decoration: none;
+}
+.jh-magic-btn-primary {
+	background: #3b82f6;
+	color: #fff;
+}
+.jh-magic-btn-primary:hover {
+	background: #2563eb;
+	color: #fff;
+}
+.jh-magic-btn-primary:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+}
+.jh-magic-btn-copy {
+	background: #0f172a;
+	color: #f1f5f9;
+	border: 1px solid #475569;
+}
+.jh-magic-btn-copy:hover {
+	background: #1e293b;
+	border-color: #64748b;
+	color: #fff;
+}
+.jh-magic-btn-copy.jh-copied {
+	background: #065f46 !important;
+	border-color: #10b981 !important;
+	color: #ecfdf5 !important;
+}
+.jh-magic-btn-sm {
+	padding: 5px 10px;
+	font-size: 12px;
+}
+.jh-magic-btn-danger {
+	background: rgba(239, 68, 68, 0.15);
+	color: #f87171;
+	border: 1px solid rgba(239, 68, 68, 0.3);
+}
+.jh-magic-btn-danger:hover {
+	background: #ef4444;
+	color: #fff;
+	border-color: #ef4444;
+}
+.jh-btn-spinner {
+	display: inline-block;
+	width: 14px;
+	height: 14px;
+	border: 2px solid rgba(255, 255, 255, 0.3);
+	border-top-color: #fff;
+	border-radius: 50%;
+	animation: jh-spin 0.6s linear infinite;
+}
+@keyframes jh-spin {
+	to { transform: rotate(360deg); }
+}
+/* Result Box */
+.jh-magic-result-card {
+	background: rgba(16, 185, 129, 0.08);
+	border: 1px solid #059669;
+	border-radius: 8px;
+	padding: 16px;
+	margin-top: 20px;
+}
+.jh-magic-result-header {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	font-size: 14px;
+	font-weight: 600;
+	color: #34d399;
+	margin-bottom: 8px;
+}
+.jh-magic-result-meta {
+	font-size: 12.5px;
+	color: #94a3b8;
+	margin-bottom: 12px;
+}
+.jh-magic-result-url-wrap {
+	display: flex;
+	gap: 8px;
+}
+.jh-magic-result-input {
+	flex: 1;
+	background: #0f172a !important;
+	border: 1px solid #334155 !important;
+	border-radius: 6px !important;
+	color: #6ee7b7 !important;
+	font-family: monospace !important;
+	font-size: 13px !important;
+	padding: 8px 12px !important;
+}
+/* Table */
+.jh-magic-table-wrap {
+	overflow-x: auto;
+}
+.jh-magic-table {
+	width: 100%;
+	border-collapse: collapse;
+	color: #e2e8f0;
+	font-size: 13px;
+}
+.jh-magic-table th {
+	text-align: left;
+	padding: 10px 12px;
+	background: #0f172a;
+	color: #94a3b8;
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	border-bottom: 1px solid #334155;
+}
+.jh-magic-table td {
+	padding: 12px;
+	border-bottom: 1px solid #334155;
+	vertical-align: middle;
+}
+.jh-magic-table tr:hover td {
+	background: rgba(255, 255, 255, 0.02);
+}
+.jh-ml-num {
+	color: #64748b;
+	font-weight: 600;
+	width: 30px;
+}
+.jh-ml-user-name {
+	color: #f8fafc;
+	display: block;
+}
+.jh-ml-user-meta {
+	display: flex;
+	align-items: center;
+	gap: 6px;
+	margin-top: 4px;
+}
+.jh-ml-role-chip {
+	background: #334155;
+	color: #cbd5e1;
+	font-size: 11px;
+	padding: 2px 7px;
+	border-radius: 4px;
+	font-weight: 600;
+}
+.jh-ml-label-text {
+	font-size: 12px;
+	color: #94a3b8;
+	font-style: italic;
+}
+.jh-ml-date {
+	color: #cbd5e1;
+}
+.jh-ml-soon {
+	color: #fbbf24;
+}
+.jh-ml-soon-tag {
+	display: inline-block;
+	background: rgba(245, 158, 11, 0.15);
+	color: #fbbf24;
+	border: 1px solid rgba(245, 158, 11, 0.3);
+	font-size: 11px;
+	padding: 1px 6px;
+	border-radius: 4px;
+	margin-left: 6px;
+}
+.jh-ml-usage {
+	font-size: 12.5px;
+	color: #94a3b8;
+}
+.jh-magic-empty-state {
+	text-align: center;
+	padding: 36px 20px;
+	color: #94a3b8;
+}
+.jh-magic-empty-state svg {
+	margin-bottom: 10px;
+}
+.jh-magic-empty-state p {
+	font-size: 14.5px;
+	font-weight: 600;
+	color: #cbd5e1;
+	margin: 0 0 4px 0;
+}
+.jh-magic-empty-state span {
+	font-size: 12.5px;
+	color: #64748b;
+}
